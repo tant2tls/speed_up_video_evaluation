@@ -1,0 +1,62 @@
+{
+  "env": {
+    "cpu_quota_enforced": 198,
+    "cgroup_quota_raw": 198.0,
+    "host_cpu_count": 256,
+    "affinity_cpu_count": 256,
+    "lies_by_factor": 1.293,
+    "omp_num_threads_env": null
+  },
+  "args": {
+    "workload": "vipe",
+    "dataset": "vipe_slow/test_video",
+    "gpus": [
+      8
+    ],
+    "arms": "ray-auto,ray-tuned",
+    "limit": 8,
+    "max_frames": null,
+    "device_policy": "original",
+    "tag": "rayarms",
+    "out": "/prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_rayarms",
+    "repeat": 1
+  },
+  "rows": [
+    {
+      "arm": "ray-auto",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 123.216,
+      "n_videos": 8,
+      "throughput_v_per_s": 0.0649,
+      "cpu_s_per_video": 82.579,
+      "gpu_busy_s_per_video": 12.307,
+      "straggler_s": 78.268,
+      "imbalance": 1.029,
+      "peak_loadavg": null,
+      "steady_state_wall_mean_s": 76.66,
+      "final_scores": {},
+      "log": "logs/ray-auto_g8.log"
+    },
+    {
+      "arm": "ray-tuned",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 88.765,
+      "n_videos": 8,
+      "throughput_v_per_s": 0.0901,
+      "cpu_s_per_video": 181.216,
+      "gpu_busy_s_per_video": 12.46,
+      "straggler_s": 61.36,
+      "imbalance": 1.099,
+      "peak_loadavg": null,
+      "steady_state_wall_mean_s": 57.763,
+      "final_scores": {},
+      "log": "logs/ray-tuned_g8.log"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "launcher": "ray",
+  "threads_mode": "tuned",
+  "pool_size": 8,
+  "threads_per_actor": 24,
+  "num_cpus_per_actor": 24.0,
+  "ray_detected_cpu": 198,
+  "cgroup_quota": 198,
+  "host_cpu_count": 256,
+  "cold_start_s": 16.305,
+  "compute_s": 157.597,
+  "wall_s": 173.902,
+  "videos_per_actor": {
+    "4": 6,
+    "1": 6,
+    "2": 6,
+    "0": 6,
+    "6": 6,
+    "3": 6,
+    "7": 6,
+    "5": 6
+  },
+  "actor_info": [
+    {
+      "actor_id": 0,
+      "model_load_s": 13.397,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "0",
+        "pid": 356417,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    },
+    {
+      "actor_id": 1,
+      "model_load_s": 13.343,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "1",
+        "pid": 356415,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    },
+    {
+      "actor_id": 2,
+      "model_load_s": 13.332,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "2",
+        "pid": 356414,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    },
+    {
+      "actor_id": 3,
+      "model_load_s": 13.438,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "3",
+        "pid": 356416,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    },
+    {
+      "actor_id": 4,
+      "model_load_s": 13.323,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "4",
+        "pid": 356418,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    },
+    {
+      "actor_id": 5,
+      "model_load_s": 13.407,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "5",
+        "pid": 356419,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    },
+    {
+      "actor_id": 6,
+      "model_load_s": 13.443,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "pid": 356421,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    },
+    {
+      "actor_id": 7,
+      "model_load_s": 13.434,
+      "env": {
+        "OMP_NUM_THREADS": "24",
+        "MKL_NUM_THREADS": "24",
+        "CUDA_VISIBLE_DEVICES": "7",
+        "pid": 356424,
+        "torch_num_threads": 24,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {
+        "requested": 24,
+        "actual_torch_threads": 24,
+        "omp_env": "24",
+        "mismatch": false
+      }
+    }
+  ]
+}

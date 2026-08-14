@@ -1,0 +1,14 @@
+[rank 7/8] 6/48 videos | threads=24 (quota=198) | torch=24 | cuda_devices=1 | policy=original
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+/usr2/tanngo/vol11/miniconda3/envs/vipe-new/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/usr2/tanngo/vol11/miniconda3/envs/vipe-new/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+[rank 7] models loaded in 16.4s
+[rank 7] 1/6 recam1_0007 wall=42.00s cpu=656.5s gpu_busy=0.99s gpu_util=2.35% cores_busy=15.6
+[rank 7] 2/6 recam1_0015 wall=38.09s cpu=599.1s gpu_busy=0.96s gpu_util=2.52% cores_busy=15.7
+[rank 7] 3/6 recam1_0023 wall=39.32s cpu=610.7s gpu_busy=1.02s gpu_util=2.6% cores_busy=15.5
+[rank 7] 4/6 recam1_0031 wall=39.67s cpu=616.4s gpu_busy=1.09s gpu_util=2.76% cores_busy=15.5
+[rank 7] 5/6 recam1_0039 wall=42.12s cpu=652.3s gpu_busy=1.11s gpu_util=2.64% cores_busy=15.5
+[rank 7] 6/6 recam1_0047 wall=36.19s cpu=574.5s gpu_busy=1.12s gpu_util=3.1% cores_busy=15.9
+[rank 7] DONE 6 videos in 237.4s -> /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_launcher_rep/fork_g8_rep1/shard_7.json

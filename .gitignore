@@ -1,0 +1,102 @@
+# Generated datasets -- reproducible from common/make_dataset.py (144 MB).
+data/
+_archive/
+
+# Private working notes. The README is the shareable project overview.
+report.md
+
+# Local AI-assistant instructions and session state.
+CLAUDE.md
+.codex/
+.agents/
+AGENTS.md
+
+# vipe_slow is a VENDORED NVIDIA ViPE checkout (its upstream .git was removed so
+# this repo owns it directly, not as a submodule). Keep the source + launchers +
+# the 31 MB test_video/ clips (the ViPE reproduce command globs all of them), but
+# exclude the heavy things a reader does not need:
+#   test_{4,8}gpus/  ~1.5 GB of raw depth/rgb/mask output -- the original 4-vs-8
+#                    evidence, now superseded by the committed results/vipe_prodcached/
+#                    JSON, so the finding reproduces without shipping the GB.
+#   *.so             the compiled vipe_ext extension -- rebuilt by `pip install -e .`
+vipe_slow/test_4gpus/
+vipe_slow/test_8gpus/
+vipe_slow/**/*.so
+
+# Orphaned legacy scripts, not part of the reproducible pipeline (nothing in the
+# harness or docs calls them) and they hardcode absolute scratch paths belonging to
+# other researchers (HF cache, cookies, dataset CSVs). Kept on disk, out of git.
+vipe_slow/run.sh
+vipe_slow/scripts/
+
+# ---------------------------------------------------------------------------
+# Run artifacts: EXCLUDE the bulk (555 MB), COMMIT the evidence (~1.1 MB).
+#
+# results/ is almost entirely ViPE depth/rgb/mask outputs that nobody reading
+# this repo needs. But the summaries ARE the evidence: every number in README.md
+# is derived from them, and a reader who cannot open them has to take the tables
+# on faith. So the JSON summaries, per-worker shards, load traces and
+# launcher logs are committed -- 226 files, ~1.1 MB.
+#
+# Four gitignore behaviours make this fiddly. Each one cost an iteration, and the
+# result was verified with `git check-ignore` over all 374 real files rather than
+# by eyeballing the patterns:
+#   1. git never descends into an excluded DIRECTORY, so a bare `results/` makes
+#      every later negation unreachable. Exclude files (`*`), keep dirs (`!*/`).
+#   2. Depth is literal: `results/*/*` does not match `results/a/b/c`. Every
+#      depth needs its own exclude line.
+#   3. LAST matching pattern wins, so ALL negations must come after ALL of the
+#      broad excludes. Interleaving them per-depth silently loses.
+#   4. There are NO trailing comments. `!results/*/sweep.json  # note` makes the
+#      comment part of the pattern, so the rule matches nothing -- silently.
+#      Every comment here is on its own line for that reason.
+# ---------------------------------------------------------------------------
+
+# Exclude files at each depth, but keep the directories walkable (1, 2).
+results/*
+!results/*/
+results/*/*
+!results/*/*/
+results/*/*/*
+!results/*/*/*/
+results/*/*/*/*
+
+# Re-include the evidence: after every exclude above (3), no trailing comments (4).
+#   sweep.json         the sweep driver's row-by-row record
+#   summary.json       movebench: merged scores + timing + shard imbalance
+#   vipe_summary.json  vipe: same
+#   ray_run.json       ray: cold start, threads/actor, detected CPUs
+#   shard_*.json       per-worker: per-sample cpu_s / gpu_busy_s
+#   loadavg.txt        the 1 Hz load trace -- how thread-storms are caught
+#   *.log              launcher stdout, incl. the THREAD MISMATCH check
+!results/*/sweep.json
+!results/*/*/summary.json
+!results/*/*/vipe_summary.json
+!results/*/*/ray_run.json
+!results/*/*/shard_*.json
+!results/*/*/loadavg.txt
+!results/*/logs/*.log
+!results/*/*/logs/*.log
+
+# The two load-balancing runs (movebench_jit{fork,ray}_g8) were written one level
+# shallower -- directly under results/<run>/ with no per-cell dir -- so they need
+# their own depth-2 negations. These hold the 1.318x -> 1.15x imbalance evidence.
+!results/*/summary.json
+!results/*/ray_run.json
+!results/*/shard_*.json
+!results/*/loadavg.txt
+
+# The heavy ViPE outputs (depth zips, rgb, masks, pickles). Last word, so it
+# beats the shard_*.json / *.log negations above.
+results/*/*/artifacts/
+
+__pycache__/
+*.pyc
+*.so
+
+# hydra's default run dir
+outputs/
+.hydra/
+
+# NOTE: this repo is deliberately figure-free -- every result is a table read from
+# committed results/*.json. There is no figures/ directory and no plotting script.

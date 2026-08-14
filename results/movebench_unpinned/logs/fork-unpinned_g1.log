@@ -1,0 +1,18 @@
+$ /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/movebench/run_fork.sh --dataset data/eval81 --gpus 0 --out /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_unpinned/fork-unpinned_g1 --limit 48 --max-frames 24
+
+==============================================================
+ launcher     : bash-fork (one process per GPU)
+ dataset      : /usr2/tanngo/vol22/PhD/ray_learning/speed_up_video_evaluation/data/eval81
+ GPUs         : 0  (world_size=1)
+ CPU quota    : 198   (nproc reports 256 -- the host, not us)
+ threads/proc : UNPINNED (torch default; expect a thread-storm at G>1)
+ out          : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_unpinned/fork-unpinned_g1
+==============================================================
+--------------------------------------------------------------
+ wall clock   : 712.86s
+ peak loadavg : 126.32  (quota 198)
+ merged       : 1 shards, 48 videos
+ scores       : clip=0.9421  epe=2.1085  lpips=0.2567  ssim=0.9197  psnr=27.9234
+ imbalance    : 1.0x (slowest shard 699.788s / fastest 699.8s)
+ per video    : cpu=1016.906s  gpu_busy=1.238s
+ summary      : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_unpinned/fork-unpinned_g1/summary.json

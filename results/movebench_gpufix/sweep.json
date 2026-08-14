@@ -1,0 +1,125 @@
+{
+  "env": {
+    "cpu_quota_enforced": 198,
+    "cgroup_quota_raw": 198.0,
+    "host_cpu_count": 256,
+    "affinity_cpu_count": 256,
+    "lies_by_factor": 1.293,
+    "omp_num_threads_env": null
+  },
+  "args": {
+    "workload": "movebench",
+    "dataset": "data/eval81",
+    "gpus": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "arms": "fork",
+    "limit": 48,
+    "max_frames": 24,
+    "device_policy": "gpu",
+    "tag": "gpufix",
+    "out": "/prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_gpufix",
+    "repeat": 1
+  },
+  "rows": [
+    {
+      "arm": "fork",
+      "G": 1,
+      "rep": 0,
+      "threads_per_worker": 198,
+      "rc": 0,
+      "wall_s": 151.289,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.3173,
+      "cpu_s_per_video": 25.743,
+      "gpu_busy_s_per_video": 2.03,
+      "straggler_s": 138.141,
+      "imbalance": 1.0,
+      "peak_loadavg": 20.24,
+      "steady_state_wall_mean_s": 2.866,
+      "final_scores": {
+        "clip": 0.9421420806191034,
+        "epe": 2.1085192089279494,
+        "lpips": 0.2567075119327961,
+        "ssim": 0.9197217747051684,
+        "psnr": 27.923387302292713
+      },
+      "log": "logs/fork_g1.log"
+    },
+    {
+      "arm": "fork",
+      "G": 2,
+      "rep": 0,
+      "threads_per_worker": 99,
+      "rc": 0,
+      "wall_s": 81.381,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.5898,
+      "cpu_s_per_video": 14.955,
+      "gpu_busy_s_per_video": 2.032,
+      "straggler_s": 67.642,
+      "imbalance": 1.002,
+      "peak_loadavg": 23.1,
+      "steady_state_wall_mean_s": 2.791,
+      "final_scores": {
+        "clip": 0.9421420806191034,
+        "epe": 2.1085192089279494,
+        "lpips": 0.25670751193279606,
+        "ssim": 0.9197217747051681,
+        "psnr": 27.92338730229272
+      },
+      "log": "logs/fork_g2.log"
+    },
+    {
+      "arm": "fork",
+      "G": 4,
+      "rep": 0,
+      "threads_per_worker": 49,
+      "rc": 0,
+      "wall_s": 49.272,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.9742,
+      "cpu_s_per_video": 9.787,
+      "gpu_busy_s_per_video": 2.023,
+      "straggler_s": 34.916,
+      "imbalance": 1.015,
+      "peak_loadavg": 25.09,
+      "steady_state_wall_mean_s": 2.836,
+      "final_scores": {
+        "clip": 0.9421420806191034,
+        "epe": 2.1085192089279494,
+        "lpips": 0.2567075119327961,
+        "ssim": 0.9197217747051681,
+        "psnr": 27.92338730229272
+      },
+      "log": "logs/fork_g4.log"
+    },
+    {
+      "arm": "fork",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 34.644,
+      "n_videos": 48,
+      "throughput_v_per_s": 1.3855,
+      "cpu_s_per_video": 7.506,
+      "gpu_busy_s_per_video": 2.006,
+      "straggler_s": 18.512,
+      "imbalance": 1.074,
+      "peak_loadavg": 22.32,
+      "steady_state_wall_mean_s": 2.933,
+      "final_scores": {
+        "clip": 0.9421420806191034,
+        "epe": 2.1085192089279494,
+        "lpips": 0.2567075119327961,
+        "ssim": 0.9197217747051684,
+        "psnr": 27.923387302292713
+      },
+      "log": "logs/fork_g8.log"
+    }
+  ]
+}

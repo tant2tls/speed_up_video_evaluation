@@ -1,0 +1,137 @@
+{
+  "launcher": "ray",
+  "threads_mode": "auto",
+  "pool_size": 8,
+  "threads_per_actor": 0,
+  "num_cpus_per_actor": null,
+  "ray_detected_cpu": 198,
+  "cgroup_quota": 198,
+  "host_cpu_count": 256,
+  "cold_start_s": 14.544,
+  "compute_s": 1167.852,
+  "wall_s": 1182.396,
+  "videos_per_actor": {
+    "3": 6,
+    "6": 6,
+    "0": 6,
+    "4": 6,
+    "1": 6,
+    "2": 6,
+    "7": 6,
+    "5": 6
+  },
+  "actor_info": [
+    {
+      "actor_id": 0,
+      "model_load_s": 11.626,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "1",
+        "pid": 322412,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    },
+    {
+      "actor_id": 1,
+      "model_load_s": 11.905,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "2",
+        "pid": 322413,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    },
+    {
+      "actor_id": 2,
+      "model_load_s": 10.536,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "3",
+        "pid": 322423,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    },
+    {
+      "actor_id": 3,
+      "model_load_s": 11.884,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "6",
+        "pid": 322419,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    },
+    {
+      "actor_id": 4,
+      "model_load_s": 11.919,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "4",
+        "pid": 322421,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    },
+    {
+      "actor_id": 5,
+      "model_load_s": 11.887,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "5",
+        "pid": 322416,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    },
+    {
+      "actor_id": 6,
+      "model_load_s": 11.621,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "7",
+        "pid": 322418,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    },
+    {
+      "actor_id": 7,
+      "model_load_s": 11.917,
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": "0",
+        "pid": 322414,
+        "torch_num_threads": 1,
+        "torch_num_interop_threads": 128,
+        "cuda_device_count": 1
+      },
+      "thread_check": {}
+    }
+  ]
+}

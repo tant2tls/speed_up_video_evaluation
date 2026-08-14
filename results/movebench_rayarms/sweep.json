@@ -1,0 +1,74 @@
+{
+  "env": {
+    "cpu_quota_enforced": 198,
+    "cgroup_quota_raw": 198.0,
+    "host_cpu_count": 256,
+    "affinity_cpu_count": 256,
+    "lies_by_factor": 1.293,
+    "omp_num_threads_env": null
+  },
+  "args": {
+    "workload": "movebench",
+    "dataset": "data/eval81",
+    "gpus": [
+      8
+    ],
+    "arms": "ray-auto,ray-tuned",
+    "limit": 48,
+    "max_frames": 24,
+    "device_policy": "original",
+    "tag": "rayarms",
+    "out": "/prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_rayarms",
+    "repeat": 1
+  },
+  "rows": [
+    {
+      "arm": "ray-auto",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 1195.162,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.0402,
+      "cpu_s_per_video": 195.393,
+      "gpu_busy_s_per_video": 1.0,
+      "straggler_s": 1167.834,
+      "imbalance": 1.007,
+      "peak_loadavg": null,
+      "steady_state_wall_mean_s": 193.587,
+      "final_scores": {
+        "clip": 0.9421420806191033,
+        "epe": 2.1085192089279494,
+        "lpips": 0.2567286110845291,
+        "ssim": 0.9197217682893905,
+        "psnr": 27.92338660028246
+      },
+      "log": "logs/ray-auto_g8.log"
+    },
+    {
+      "arm": "ray-tuned",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 186.292,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.2577,
+      "cpu_s_per_video": 436.247,
+      "gpu_busy_s_per_video": 1.046,
+      "straggler_s": 157.577,
+      "imbalance": 1.019,
+      "peak_loadavg": null,
+      "steady_state_wall_mean_s": 26.048,
+      "final_scores": {
+        "clip": 0.9421420806191033,
+        "epe": 2.1085192089279494,
+        "lpips": 0.2567286111880094,
+        "ssim": 0.9197217663750052,
+        "psnr": 27.92338661518362
+      },
+      "log": "logs/ray-tuned_g8.log"
+    }
+  ]
+}

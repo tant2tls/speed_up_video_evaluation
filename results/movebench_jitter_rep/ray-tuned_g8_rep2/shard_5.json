@@ -1,0 +1,128 @@
+{
+  "rank": 5,
+  "world_size": 8,
+  "threads_requested": 24,
+  "model_load_s": 15.034,
+  "compute_s": 86.01,
+  "thread_check": {
+    "requested": 24,
+    "actual_torch_threads": 24,
+    "omp_env": "24",
+    "mismatch": false
+  },
+  "timing": {
+    "n": 4,
+    "wall_total_s": 86.01,
+    "wall_mean_s": 21.503,
+    "cpu_total_s": 1396.99,
+    "cpu_mean_s": 349.248,
+    "gpu_total_s": 86.011,
+    "gpu_mean_s": 21.503,
+    "gpu_busy_total_s": 3.36,
+    "gpu_busy_mean_s": 0.84,
+    "cpu_parallelism": 16.242,
+    "gpu_occupancy": 0.039
+  },
+  "timing_steady_state": {
+    "n": 3,
+    "wall_total_s": 70.307,
+    "wall_mean_s": 23.436,
+    "cpu_total_s": 1133.9,
+    "cpu_mean_s": 377.967,
+    "gpu_total_s": 70.307,
+    "gpu_mean_s": 23.436,
+    "gpu_busy_total_s": 2.67,
+    "gpu_busy_mean_s": 0.89,
+    "cpu_parallelism": 16.128,
+    "gpu_occupancy": 0.038,
+    "skipped_warmup": 1
+  },
+  "per_sample": [
+    {
+      "name": "recam1_0002",
+      "wall_s": 15.703547963872552,
+      "cpu_s": 263.09000000000003,
+      "gpu_s": 15.7035791015625,
+      "gpu_busy_s": 0.6899,
+      "cpu_par": 16.754,
+      "gpu_util_mean": 4.39,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0013",
+      "wall_s": 19.722040992230177,
+      "cpu_s": 322.09,
+      "gpu_s": 19.722123046875,
+      "gpu_busy_s": 0.8731,
+      "cpu_par": 16.331,
+      "gpu_util_mean": 4.43,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0021",
+      "wall_s": 24.83993423730135,
+      "cpu_s": 398.82000000000005,
+      "gpu_s": 24.839876953125,
+      "gpu_busy_s": 1.0535,
+      "cpu_par": 16.056,
+      "gpu_util_mean": 4.24,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0033",
+      "wall_s": 25.744884012266994,
+      "cpu_s": 412.99,
+      "gpu_s": 25.74504296875,
+      "gpu_busy_s": 0.7437,
+      "cpu_par": 16.042,
+      "gpu_util_mean": 2.89,
+      "extra": {}
+    }
+  ],
+  "results": [
+    {
+      "name": "recam1_0002",
+      "frames": 15,
+      "scores": {
+        "clip": 0.9924505273501079,
+        "epe": 1.2477221488952637,
+        "lpips": 0.11123598863681157,
+        "ssim": 0.9736181577046712,
+        "psnr": 33.15564155578613
+      }
+    },
+    {
+      "name": "recam1_0013",
+      "frames": 17,
+      "scores": {
+        "clip": 0.9856028416577507,
+        "epe": 1.7520723342895508,
+        "lpips": 0.16077954015311072,
+        "ssim": 0.9496714367586023,
+        "psnr": 29.44715466218836
+      }
+    },
+    {
+      "name": "recam1_0021",
+      "frames": 21,
+      "scores": {
+        "clip": 0.9406570735431853,
+        "epe": 2.123042583465576,
+        "lpips": 0.22583907842636108,
+        "ssim": 0.9314252592268444,
+        "psnr": 27.87649944850377
+      }
+    },
+    {
+      "name": "recam1_0033",
+      "frames": 22,
+      "scores": {
+        "clip": 0.9083694273775275,
+        "epe": 2.3684892654418945,
+        "lpips": 0.35648315670815384,
+        "ssim": 0.8930488093332811,
+        "psnr": 25.84011563387784
+      }
+    }
+  ]
+}

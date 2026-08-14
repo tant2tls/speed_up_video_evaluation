@@ -1,0 +1,101 @@
+{
+  "env": {
+    "cpu_quota_enforced": 198,
+    "cgroup_quota_raw": 198.0,
+    "host_cpu_count": 256,
+    "affinity_cpu_count": 256,
+    "lies_by_factor": 1.293,
+    "omp_num_threads_env": null
+  },
+  "args": {
+    "workload": "vipe",
+    "dataset": "vipe_slow/test_video",
+    "gpus": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "arms": "fork-unpinned",
+    "limit": 8,
+    "max_frames": null,
+    "device_policy": "original",
+    "tag": "unpinned",
+    "out": "/prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_unpinned",
+    "repeat": 1
+  },
+  "rows": [
+    {
+      "arm": "fork-unpinned",
+      "G": 1,
+      "rep": 0,
+      "threads_per_worker": 0,
+      "rc": 0,
+      "wall_s": 435.963,
+      "n_videos": 8,
+      "throughput_v_per_s": 0.0184,
+      "cpu_s_per_video": 691.291,
+      "gpu_busy_s_per_video": 12.497,
+      "straggler_s": 421.662,
+      "imbalance": 1.0,
+      "peak_loadavg": 28.64,
+      "steady_state_wall_mean_s": 52.533,
+      "final_scores": {},
+      "log": "logs/fork-unpinned_g1.log"
+    },
+    {
+      "arm": "fork-unpinned",
+      "G": 2,
+      "rep": 0,
+      "threads_per_worker": 0,
+      "rc": 0,
+      "wall_s": 237.045,
+      "n_videos": 8,
+      "throughput_v_per_s": 0.0337,
+      "cpu_s_per_video": 732.151,
+      "gpu_busy_s_per_video": 12.519,
+      "straggler_s": 223.312,
+      "imbalance": 1.02,
+      "peak_loadavg": 59.54,
+      "steady_state_wall_mean_s": 55.016,
+      "final_scores": {},
+      "log": "logs/fork-unpinned_g2.log"
+    },
+    {
+      "arm": "fork-unpinned",
+      "G": 4,
+      "rep": 0,
+      "threads_per_worker": 0,
+      "rc": 0,
+      "wall_s": 177.185,
+      "n_videos": 8,
+      "throughput_v_per_s": 0.0452,
+      "cpu_s_per_video": 1818.327,
+      "gpu_busy_s_per_video": 12.715,
+      "straggler_s": 161.903,
+      "imbalance": 1.021,
+      "peak_loadavg": 174.04,
+      "steady_state_wall_mean_s": 74.645,
+      "final_scores": {},
+      "log": "logs/fork-unpinned_g4.log"
+    },
+    {
+      "arm": "fork-unpinned",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 0,
+      "rc": 0,
+      "wall_s": 213.874,
+      "n_videos": 8,
+      "throughput_v_per_s": 0.0374,
+      "cpu_s_per_video": 3856.192,
+      "gpu_busy_s_per_video": 13.481,
+      "straggler_s": 191.939,
+      "imbalance": 1.243,
+      "peak_loadavg": 321.43,
+      "steady_state_wall_mean_s": 181.42,
+      "final_scores": {},
+      "log": "logs/fork-unpinned_g8.log"
+    }
+  ]
+}

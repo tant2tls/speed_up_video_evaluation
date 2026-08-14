@@ -1,0 +1,115 @@
+{
+  "rank": 0,
+  "world_size": 2,
+  "threads_requested": 99,
+  "model_load_s": 9.137,
+  "compute_s": 219.472,
+  "videos": [
+    "recam1",
+    "recam11",
+    "recam2",
+    "recam4"
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "99",
+    "MKL_NUM_THREADS": "99",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "pid": 293303,
+    "torch_num_threads": 99,
+    "torch_num_interop_threads": 128,
+    "cuda_device_count": 1
+  },
+  "thread_check": {
+    "requested": 99,
+    "actual_torch_threads": 99,
+    "omp_env": "99",
+    "mismatch": false
+  },
+  "timing": {
+    "n": 4,
+    "wall_total_s": 219.051,
+    "wall_mean_s": 54.763,
+    "cpu_total_s": 2203.75,
+    "cpu_mean_s": 550.938,
+    "gpu_total_s": 219.051,
+    "gpu_mean_s": 54.763,
+    "gpu_busy_total_s": 49.222,
+    "gpu_busy_mean_s": 12.306,
+    "cpu_parallelism": 10.06,
+    "gpu_occupancy": 0.225
+  },
+  "timing_steady_state": {
+    "n": 3,
+    "wall_total_s": 162.645,
+    "wall_mean_s": 54.215,
+    "cpu_total_s": 1714.99,
+    "cpu_mean_s": 571.663,
+    "gpu_total_s": 162.645,
+    "gpu_mean_s": 54.215,
+    "gpu_busy_total_s": 36.656,
+    "gpu_busy_mean_s": 12.219,
+    "cpu_parallelism": 10.544,
+    "gpu_occupancy": 0.225,
+    "skipped_warmup": 1
+  },
+  "per_sample": [
+    {
+      "name": "recam1",
+      "wall_s": 56.406059375964105,
+      "cpu_s": 488.76,
+      "gpu_s": 56.4059609375,
+      "gpu_busy_s": 12.5661,
+      "cpu_par": 8.665,
+      "gpu_util_mean": 22.28,
+      "extra": {}
+    },
+    {
+      "name": "recam11",
+      "wall_s": 53.84865141008049,
+      "cpu_s": 591.2200000000001,
+      "gpu_s": 53.84863671875,
+      "gpu_busy_s": 11.9158,
+      "cpu_par": 10.979,
+      "gpu_util_mean": 22.13,
+      "extra": {}
+    },
+    {
+      "name": "recam2",
+      "wall_s": 53.51305007515475,
+      "cpu_s": 590.05,
+      "gpu_s": 53.51298046875,
+      "gpu_busy_s": 12.51,
+      "cpu_par": 11.026,
+      "gpu_util_mean": 23.38,
+      "extra": {}
+    },
+    {
+      "name": "recam4",
+      "wall_s": 55.283561962191015,
+      "cpu_s": 533.72,
+      "gpu_s": 55.28346875,
+      "gpu_busy_s": 12.2303,
+      "cpu_par": 9.654,
+      "gpu_util_mean": 22.12,
+      "extra": {}
+    }
+  ],
+  "results": [
+    {
+      "name": "recam1",
+      "scores": {}
+    },
+    {
+      "name": "recam11",
+      "scores": {}
+    },
+    {
+      "name": "recam2",
+      "scores": {}
+    },
+    {
+      "name": "recam4",
+      "scores": {}
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+$ /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/movebench/run_fork.sh --dataset data/eval81 --gpus 0,1,2,3 --out /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_gpufix/fork_g4 --limit 48 --max-frames 24 --device-policy gpu
+
+==============================================================
+ launcher     : bash-fork (one process per GPU)
+ dataset      : /usr2/tanngo/vol22/PhD/ray_learning/speed_up_video_evaluation/data/eval81
+ GPUs         : 0,1,2,3  (world_size=4)
+ CPU quota    : 198   (nproc reports 256 -- the host, not us)
+ threads/proc : 49   (198 / 4)
+ total threads: 196 vs quota 198
+ out          : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_gpufix/fork_g4
+==============================================================
+--------------------------------------------------------------
+ wall clock   : 49.03s
+ peak loadavg : 25.09  (quota 198)
+ merged       : 4 shards, 48 videos
+   tree-reduce round 1: 4 -> 2  (r0+r1) (r2+r3)
+   tree-reduce round 2: 2 -> 1  ((r0+r1)+(r2+r3))
+ scores       : clip=0.9421  epe=2.1085  lpips=0.2567  ssim=0.9197  psnr=27.9234
+ imbalance    : 1.015x (slowest shard 34.916s / fastest 34.4s)
+ per video    : cpu=9.787s  gpu_busy=2.023s
+ summary      : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_gpufix/fork_g4/summary.json

@@ -1,0 +1,84 @@
+$ /usr2/tanngo/vol11/miniconda3/envs/vipe-new/bin/python /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/movebench/run_ray.py --dataset data/eval81 --gpus 8 --threads-mode tuned --out /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_launcher_rep/ray-tuned_g8_rep0 --limit 48 --max-frames 24
+
+2026-08-11 03:00:49,443	WARNING utils.py:461 -- Detecting docker specified CPUs. In previous versions of Ray, CPU detection in containers was incorrect. Please ensure that Ray has enough CPUs allocated. As a temporary workaround to revert to the prior behavior, set `RAY_USE_MULTIPROCESSING_CPU_COUNT=1` as an env var before starting Ray. Set the env var: `RAY_DISABLE_DOCKER_CPU_WARNING=1` to mute this warning.
+2026-08-11 03:00:51,854	INFO worker.py:2012 -- Started a local Ray instance.
+/usr2/tanngo/vol11/miniconda3/envs/vipe-new/lib/python3.11/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+==============================================================
+ launcher     : Ray actor pool (dynamic work queue)
+ dataset      : data/eval81  (48 videos)
+ pool size    : 8 actors (1 GPU each)
+ CPU quota    : 198   | Ray detected: 198   | nproc: 256
+ threads mode : tuned   num_cpus=24.0  torch.set_num_threads(24)
+ out          : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_launcher_rep/ray-tuned_g8_rep0
+==============================================================
+ actor pool ready in 19.0s
+   actor 0: load=15.909s OMP=24 torch_threads=24
+   actor 1: load=15.905s OMP=24 torch_threads=24
+   actor 2: load=15.865s OMP=24 torch_threads=24
+   actor 3: load=15.929s OMP=24 torch_threads=24
+   actor 4: load=15.795s OMP=24 torch_threads=24
+   actor 5: load=15.834s OMP=24 torch_threads=24
+   actor 6: load=15.825s OMP=24 torch_threads=24
+   actor 7: load=15.843s OMP=24 torch_threads=24
+ [1/48] recam1_0001 actor=6 wall=23.41s cpu=393.2s gpu_util=3.46% cores_busy=16.8
+ [2/48] recam1_0002 actor=5 wall=24.66s cpu=411.1s gpu_util=3.14% cores_busy=16.7
+ [3/48] recam1_0006 actor=1 wall=26.24s cpu=426.9s gpu_util=3.08% cores_busy=16.3
+ [4/48] recam1_0007 actor=0 wall=26.62s cpu=453.6s gpu_util=3.58% cores_busy=17.0
+ [5/48] recam1_0004 actor=3 wall=26.79s cpu=437.9s gpu_util=3.12% cores_busy=16.3
+ [6/48] recam1_0005 actor=2 wall=26.81s cpu=449.6s gpu_util=4.05% cores_busy=16.8
+ [7/48] recam1_0003 actor=4 wall=27.19s cpu=452.1s gpu_util=3.04% cores_busy=16.6
+ [8/48] recam1_0000 actor=7 wall=27.75s cpu=455.5s gpu_util=3.54% cores_busy=16.4
+ [9/48] recam1_0008 actor=6 wall=24.12s cpu=408.2s gpu_util=3.9% cores_busy=16.9
+ [10/48] recam1_0009 actor=5 wall=24.90s cpu=420.9s gpu_util=5.01% cores_busy=16.9
+ [11/48] recam1_0010 actor=1 wall=25.29s cpu=425.4s gpu_util=5.45% cores_busy=16.8
+ [12/48] recam1_0014 actor=4 wall=25.05s cpu=420.5s gpu_util=3.48% cores_busy=16.8
+ [13/48] recam1_0011 actor=0 wall=26.44s cpu=448.3s gpu_util=4.5% cores_busy=17.0
+ [14/48] recam1_0015 actor=7 wall=26.12s cpu=441.9s gpu_util=4.15% cores_busy=16.9
+ [15/48] recam1_0013 actor=2 wall=27.24s cpu=457.5s gpu_util=3.7% cores_busy=16.8
+ [16/48] recam1_0012 actor=3 wall=28.00s cpu=454.8s gpu_util=4.29% cores_busy=16.2
+ [17/48] recam1_0016 actor=6 wall=25.75s cpu=436.3s gpu_util=3.82% cores_busy=16.9
+ [18/48] recam1_0017 actor=5 wall=24.68s cpu=417.1s gpu_util=4.26% cores_busy=16.9
+ [19/48] recam1_0018 actor=1 wall=25.15s cpu=422.6s gpu_util=3.86% cores_busy=16.8
+ [20/48] recam1_0019 actor=4 wall=25.16s cpu=422.6s gpu_util=3.23% cores_busy=16.8
+ [21/48] recam1_0020 actor=0 wall=25.98s cpu=439.9s gpu_util=3.98% cores_busy=16.9
+ [22/48] recam1_0021 actor=7 wall=25.81s cpu=433.1s gpu_util=4.03% cores_busy=16.8
+ [23/48] recam1_0022 actor=2 wall=25.66s cpu=434.4s gpu_util=4.16% cores_busy=16.9
+ [24/48] recam1_0023 actor=3 wall=25.74s cpu=436.4s gpu_util=4.76% cores_busy=17.0
+ [25/48] recam1_0024 actor=6 wall=25.54s cpu=427.6s gpu_util=4.34% cores_busy=16.7
+ [26/48] recam1_0025 actor=5 wall=24.60s cpu=415.0s gpu_util=3.71% cores_busy=16.9
+ [27/48] recam1_0026 actor=1 wall=24.95s cpu=419.6s gpu_util=4.55% cores_busy=16.8
+ [28/48] recam1_0027 actor=4 wall=25.58s cpu=423.2s gpu_util=4.91% cores_busy=16.5
+ [29/48] recam1_0028 actor=0 wall=25.70s cpu=431.2s gpu_util=3.97% cores_busy=16.8
+ [30/48] recam1_0029 actor=7 wall=25.51s cpu=430.1s gpu_util=3.71% cores_busy=16.9
+ [31/48] recam1_0030 actor=2 wall=25.51s cpu=430.9s gpu_util=3.95% cores_busy=16.9
+ [32/48] recam1_0031 actor=3 wall=26.50s cpu=439.8s gpu_util=3.96% cores_busy=16.6
+ [33/48] recam1_0033 actor=5 wall=24.73s cpu=419.8s gpu_util=4.77% cores_busy=17.0
+ [34/48] recam1_0032 actor=6 wall=26.06s cpu=432.7s gpu_util=3.44% cores_busy=16.6
+ [35/48] recam1_0034 actor=1 wall=24.88s cpu=415.7s gpu_util=4.04% cores_busy=16.7
+ [36/48] recam1_0035 actor=4 wall=24.88s cpu=417.7s gpu_util=4.28% cores_busy=16.8
+ [37/48] recam1_0036 actor=0 wall=25.44s cpu=433.4s gpu_util=4.41% cores_busy=17.0
+ [38/48] recam1_0037 actor=7 wall=25.22s cpu=424.6s gpu_util=4.04% cores_busy=16.8
+ [39/48] recam1_0038 actor=2 wall=26.06s cpu=440.0s gpu_util=4.73% cores_busy=16.9
+ [40/48] recam1_0039 actor=3 wall=25.77s cpu=424.3s gpu_util=4.06% cores_busy=16.5
+ [41/48] recam1_0040 actor=5 wall=23.85s cpu=402.0s gpu_util=4.4% cores_busy=16.9
+ [42/48] recam1_0041 actor=6 wall=25.30s cpu=423.6s gpu_util=4.16% cores_busy=16.7
+ [43/48] recam1_0042 actor=1 wall=25.31s cpu=421.7s gpu_util=3.98% cores_busy=16.7
+ [44/48] recam1_0043 actor=4 wall=24.72s cpu=416.2s gpu_util=4.92% cores_busy=16.8
+ [45/48] recam1_0044 actor=0 wall=25.11s cpu=426.4s gpu_util=4.34% cores_busy=17.0
+ [46/48] recam1_0047 actor=3 wall=23.34s cpu=392.2s gpu_util=3.86% cores_busy=16.8
+ [47/48] recam1_0045 actor=7 wall=25.80s cpu=430.2s gpu_util=3.82% cores_busy=16.7
+ [48/48] recam1_0046 actor=2 wall=25.72s cpu=435.2s gpu_util=4.31% cores_busy=16.9
+ merged       : 8 shards, 48 videos
+   tree-reduce round 1: 8 -> 4  (r0+r1) (r2+r3) (r4+r5) (r6+r7)
+   tree-reduce round 2: 4 -> 2  ((r0+r1)+(r2+r3)) ((r4+r5)+(r6+r7))
+   tree-reduce round 3: 2 -> 1  (((r0+r1)+(r2+r3))+((r4+r5)+(r6+r7)))
+ scores       : clip=0.9421  epe=2.1085  lpips=0.2567  ssim=0.9197  psnr=27.9234
+ imbalance    : 1.065x (slowest shard 157.003s / fastest 147.4s)
+ per video    : cpu=428.604s  gpu_busy=1.033s
+ summary      : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_launcher_rep/ray-tuned_g8_rep0/summary.json
+--------------------------------------------------------------
+ cold start   : 18.99s (actor pool + model load)
+ compute      : 157.02s
+ wall clock   : 176.02s
+ per actor    : {0: 6, 1: 6, 2: 6, 3: 6, 4: 6, 5: 6, 6: 6, 7: 6} videos

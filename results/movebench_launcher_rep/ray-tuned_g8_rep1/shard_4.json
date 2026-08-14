@@ -1,0 +1,170 @@
+{
+  "rank": 4,
+  "world_size": 8,
+  "threads_requested": 24,
+  "model_load_s": 15.75,
+  "compute_s": 154.363,
+  "thread_check": {
+    "requested": 24,
+    "actual_torch_threads": 24,
+    "omp_env": "24",
+    "mismatch": false
+  },
+  "timing": {
+    "n": 6,
+    "wall_total_s": 154.363,
+    "wall_mean_s": 25.727,
+    "cpu_total_s": 2630.71,
+    "cpu_mean_s": 438.452,
+    "gpu_total_s": 154.362,
+    "gpu_mean_s": 25.727,
+    "gpu_busy_total_s": 6.274,
+    "gpu_busy_mean_s": 1.046,
+    "cpu_parallelism": 17.042,
+    "gpu_occupancy": 0.041
+  },
+  "timing_steady_state": {
+    "n": 5,
+    "wall_total_s": 128.751,
+    "wall_mean_s": 25.75,
+    "cpu_total_s": 2191.29,
+    "cpu_mean_s": 438.258,
+    "gpu_total_s": 128.751,
+    "gpu_mean_s": 25.75,
+    "gpu_busy_total_s": 5.103,
+    "gpu_busy_mean_s": 1.021,
+    "cpu_parallelism": 17.02,
+    "gpu_occupancy": 0.04,
+    "skipped_warmup": 1
+  },
+  "per_sample": [
+    {
+      "name": "recam1_0003",
+      "wall_s": 25.61183598637581,
+      "cpu_s": 439.42,
+      "gpu_s": 25.61169921875,
+      "gpu_busy_s": 1.1711,
+      "cpu_par": 17.157,
+      "gpu_util_mean": 4.57,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0012",
+      "wall_s": 26.2545179836452,
+      "cpu_s": 448.85,
+      "gpu_s": 26.254447265625,
+      "gpu_busy_s": 0.9179,
+      "cpu_par": 17.096,
+      "gpu_util_mean": 3.5,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0023",
+      "wall_s": 26.17158104851842,
+      "cpu_s": 445.01,
+      "gpu_s": 26.171439453125,
+      "gpu_busy_s": 1.254,
+      "cpu_par": 17.004,
+      "gpu_util_mean": 4.79,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0031",
+      "wall_s": 26.151713272556663,
+      "cpu_s": 441.94000000000005,
+      "gpu_s": 26.151669921875,
+      "gpu_busy_s": 1.08,
+      "cpu_par": 16.899,
+      "gpu_util_mean": 4.13,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0039",
+      "wall_s": 25.61889474093914,
+      "cpu_s": 440.03999999999974,
+      "gpu_s": 25.618806640625,
+      "gpu_busy_s": 1.0656,
+      "cpu_par": 17.176,
+      "gpu_util_mean": 4.16,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0047",
+      "wall_s": 24.554347908124328,
+      "cpu_s": 415.4500000000003,
+      "gpu_s": 24.55430078125,
+      "gpu_busy_s": 0.7854,
+      "cpu_par": 16.92,
+      "gpu_util_mean": 3.2,
+      "extra": {}
+    }
+  ],
+  "results": [
+    {
+      "name": "recam1_0003",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9928704276680946,
+        "epe": 1.3189421892166138,
+        "lpips": 0.1161968329300483,
+        "ssim": 0.972537544866403,
+        "psnr": 33.118385314941406
+      }
+    },
+    {
+      "name": "recam1_0012",
+      "frames": 24,
+      "scores": {
+        "clip": 0.983217271665732,
+        "epe": 1.9929070472717285,
+        "lpips": 0.16152416604260603,
+        "ssim": 0.9453690151373545,
+        "psnr": 29.191532214482624
+      }
+    },
+    {
+      "name": "recam1_0023",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9206517164905866,
+        "epe": 2.446866989135742,
+        "lpips": 0.25271664063135785,
+        "ssim": 0.9120106448729833,
+        "psnr": 26.567482868830364
+      }
+    },
+    {
+      "name": "recam1_0031",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9124173273642858,
+        "epe": 2.2485320568084717,
+        "lpips": 0.3112957142293453,
+        "ssim": 0.908821182946364,
+        "psnr": 26.453188339869182
+      }
+    },
+    {
+      "name": "recam1_0039",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9004611521959305,
+        "epe": 2.493551731109619,
+        "lpips": 0.38133272031943005,
+        "ssim": 0.870690735677878,
+        "psnr": 24.68417700131734
+      }
+    },
+    {
+      "name": "recam1_0047",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9017339199781418,
+        "epe": 3.3682873249053955,
+        "lpips": 0.4326607858141263,
+        "ssim": 0.8415637115637461,
+        "psnr": 23.675214687983196
+      }
+    }
+  ]
+}

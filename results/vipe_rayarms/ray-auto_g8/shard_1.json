@@ -1,0 +1,55 @@
+{
+  "rank": 1,
+  "world_size": 8,
+  "threads_requested": 0,
+  "model_load_s": 17.644,
+  "compute_s": 76.063,
+  "thread_check": {},
+  "timing": {
+    "n": 1,
+    "wall_total_s": 76.063,
+    "wall_mean_s": 76.063,
+    "cpu_total_s": 83.0,
+    "cpu_mean_s": 83.0,
+    "gpu_total_s": 76.063,
+    "gpu_mean_s": 76.063,
+    "gpu_busy_total_s": 12.394,
+    "gpu_busy_mean_s": 12.394,
+    "cpu_parallelism": 1.091,
+    "gpu_occupancy": 0.163
+  },
+  "timing_steady_state": {
+    "n": 1,
+    "wall_total_s": 76.063,
+    "wall_mean_s": 76.063,
+    "cpu_total_s": 83.0,
+    "cpu_mean_s": 83.0,
+    "gpu_total_s": 76.063,
+    "gpu_mean_s": 76.063,
+    "gpu_busy_total_s": 12.394,
+    "gpu_busy_mean_s": 12.394,
+    "cpu_parallelism": 1.091,
+    "gpu_occupancy": 0.163
+  },
+  "per_sample": [
+    {
+      "name": "recam4",
+      "wall_s": 76.0629522074014,
+      "cpu_s": 83.0,
+      "gpu_s": 76.06296875,
+      "gpu_busy_s": 12.3942,
+      "cpu_par": 1.091,
+      "gpu_util_mean": 16.29,
+      "extra": {}
+    }
+  ],
+  "videos": [
+    "recam4"
+  ],
+  "results": [
+    {
+      "name": "recam4",
+      "scores": {}
+    }
+  ]
+}

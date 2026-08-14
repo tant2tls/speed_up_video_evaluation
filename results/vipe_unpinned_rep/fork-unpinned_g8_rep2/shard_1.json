@@ -1,0 +1,67 @@
+{
+  "rank": 1,
+  "world_size": 8,
+  "threads_requested": 0,
+  "stream_mode": "lazy",
+  "model_load_s": 18.798,
+  "compute_s": 201.612,
+  "cache_total_s": null,
+  "cache_mean_s": null,
+  "videos": [
+    "recam10"
+  ],
+  "env": {
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "CUDA_VISIBLE_DEVICES": "1",
+    "pid": 441667,
+    "torch_num_threads": 128,
+    "torch_num_interop_threads": 128,
+    "cuda_device_count": 1
+  },
+  "thread_check": {},
+  "timing": {
+    "n": 1,
+    "wall_total_s": 200.559,
+    "wall_mean_s": 200.559,
+    "cpu_total_s": 4199.93,
+    "cpu_mean_s": 4199.93,
+    "gpu_total_s": 200.559,
+    "gpu_mean_s": 200.559,
+    "gpu_busy_total_s": 13.958,
+    "gpu_busy_mean_s": 13.958,
+    "cpu_parallelism": 20.941,
+    "gpu_occupancy": 0.07
+  },
+  "timing_steady_state": {
+    "n": 1,
+    "wall_total_s": 200.559,
+    "wall_mean_s": 200.559,
+    "cpu_total_s": 4199.93,
+    "cpu_mean_s": 4199.93,
+    "gpu_total_s": 200.559,
+    "gpu_mean_s": 200.559,
+    "gpu_busy_total_s": 13.958,
+    "gpu_busy_mean_s": 13.958,
+    "cpu_parallelism": 20.941,
+    "gpu_occupancy": 0.07
+  },
+  "per_sample": [
+    {
+      "name": "recam10",
+      "wall_s": 200.55878855101764,
+      "cpu_s": 4199.93,
+      "gpu_s": 200.55928125,
+      "gpu_busy_s": 13.9577,
+      "cpu_par": 20.941,
+      "gpu_util_mean": 6.96,
+      "extra": {}
+    }
+  ],
+  "results": [
+    {
+      "name": "recam10",
+      "scores": {}
+    }
+  ]
+}

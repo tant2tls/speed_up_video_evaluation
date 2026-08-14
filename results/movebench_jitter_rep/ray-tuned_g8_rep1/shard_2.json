@@ -1,0 +1,170 @@
+{
+  "rank": 2,
+  "world_size": 8,
+  "threads_requested": 24,
+  "model_load_s": 14.451,
+  "compute_s": 84.014,
+  "thread_check": {
+    "requested": 24,
+    "actual_torch_threads": 24,
+    "omp_env": "24",
+    "mismatch": false
+  },
+  "timing": {
+    "n": 6,
+    "wall_total_s": 84.014,
+    "wall_mean_s": 14.002,
+    "cpu_total_s": 1387.48,
+    "cpu_mean_s": 231.247,
+    "gpu_total_s": 84.014,
+    "gpu_mean_s": 14.002,
+    "gpu_busy_total_s": 2.822,
+    "gpu_busy_mean_s": 0.47,
+    "cpu_parallelism": 16.515,
+    "gpu_occupancy": 0.034
+  },
+  "timing_steady_state": {
+    "n": 5,
+    "wall_total_s": 76.814,
+    "wall_mean_s": 15.363,
+    "cpu_total_s": 1269.22,
+    "cpu_mean_s": 253.844,
+    "gpu_total_s": 76.814,
+    "gpu_mean_s": 15.363,
+    "gpu_busy_total_s": 2.712,
+    "gpu_busy_mean_s": 0.542,
+    "cpu_parallelism": 16.523,
+    "gpu_occupancy": 0.035,
+    "skipped_warmup": 1
+  },
+  "per_sample": [
+    {
+      "name": "recam1_0005",
+      "wall_s": 7.199453664943576,
+      "cpu_s": 118.25999999999999,
+      "gpu_s": 7.19947607421875,
+      "gpu_busy_s": 0.1105,
+      "cpu_par": 16.426,
+      "gpu_util_mean": 1.54,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0008",
+      "wall_s": 10.316906524822116,
+      "cpu_s": 172.31000000000003,
+      "gpu_s": 10.3168798828125,
+      "gpu_busy_s": 0.3326,
+      "cpu_par": 16.702,
+      "gpu_util_mean": 3.22,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0014",
+      "wall_s": 27.68385916389525,
+      "cpu_s": 449.7099999999999,
+      "gpu_s": 27.68390625,
+      "gpu_busy_s": 1.0007,
+      "cpu_par": 16.244,
+      "gpu_util_mean": 3.61,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0026",
+      "wall_s": 17.93597030825913,
+      "cpu_s": 297.0000000000001,
+      "gpu_s": 17.9360390625,
+      "gpu_busy_s": 0.572,
+      "cpu_par": 16.559,
+      "gpu_util_mean": 3.19,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0034",
+      "wall_s": 6.598098428919911,
+      "cpu_s": 108.93999999999983,
+      "gpu_s": 6.5981201171875,
+      "gpu_busy_s": 0.3466,
+      "cpu_par": 16.511,
+      "gpu_util_mean": 5.25,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0039",
+      "wall_s": 14.2793576028198,
+      "cpu_s": 241.26000000000022,
+      "gpu_s": 14.2793623046875,
+      "gpu_busy_s": 0.4596,
+      "cpu_par": 16.896,
+      "gpu_util_mean": 3.22,
+      "extra": {}
+    }
+  ],
+  "results": [
+    {
+      "name": "recam1_0005",
+      "frames": 6,
+      "scores": {
+        "clip": 0.9918099542458853,
+        "epe": 1.470018982887268,
+        "lpips": 0.11922132348020871,
+        "ssim": 0.970897396405538,
+        "psnr": 32.70308494567871
+      }
+    },
+    {
+      "name": "recam1_0008",
+      "frames": 9,
+      "scores": {
+        "clip": 0.9879381524191962,
+        "epe": 1.792649507522583,
+        "lpips": 0.13881604042318132,
+        "ssim": 0.9549227423138089,
+        "psnr": 30.301795535617405
+      }
+    },
+    {
+      "name": "recam1_0014",
+      "frames": 24,
+      "scores": {
+        "clip": 0.982319084306558,
+        "epe": 1.6839065551757812,
+        "lpips": 0.16838660339514414,
+        "ssim": 0.9489067271351814,
+        "psnr": 29.37783734003703
+      }
+    },
+    {
+      "name": "recam1_0026",
+      "frames": 16,
+      "scores": {
+        "clip": 0.9280367307364941,
+        "epe": 2.0352108478546143,
+        "lpips": 0.2697689887136221,
+        "ssim": 0.9145473539829254,
+        "psnr": 26.741491198539734
+      }
+    },
+    {
+      "name": "recam1_0034",
+      "frames": 6,
+      "scores": {
+        "clip": 0.9223466118176779,
+        "epe": 2.05157732963562,
+        "lpips": 0.3378947426875432,
+        "ssim": 0.9059766133626302,
+        "psnr": 26.5451078414917
+      }
+    },
+    {
+      "name": "recam1_0039",
+      "frames": 14,
+      "scores": {
+        "clip": 0.915648707321712,
+        "epe": 2.464679479598999,
+        "lpips": 0.37176211178302765,
+        "ssim": 0.8759659145559583,
+        "psnr": 24.91873264312744
+      }
+    }
+  ]
+}

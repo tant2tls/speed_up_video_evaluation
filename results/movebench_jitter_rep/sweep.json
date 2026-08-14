@@ -1,0 +1,172 @@
+{
+  "env": {
+    "cpu_quota_enforced": 198,
+    "cgroup_quota_raw": 198.0,
+    "host_cpu_count": 256,
+    "affinity_cpu_count": 256,
+    "lies_by_factor": 1.293,
+    "omp_num_threads_env": null
+  },
+  "args": {
+    "workload": "movebench",
+    "dataset": "data/eval81_jitter",
+    "gpus": [
+      8
+    ],
+    "arms": "fork,ray-tuned",
+    "limit": 48,
+    "max_frames": 24,
+    "device_policy": "original",
+    "stream_mode": "lazy",
+    "pose_only": false,
+    "tag": "jitter_rep",
+    "out": "/prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_jitter_rep",
+    "repeat": 3
+  },
+  "rows": [
+    {
+      "arm": "fork",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 132.22,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.363,
+      "cpu_s_per_video": 247.527,
+      "gpu_busy_s_per_video": 0.583,
+      "straggler_s": 102.868,
+      "imbalance": 1.444,
+      "peak_loadavg": 350.47,
+      "steady_state_wall_mean_s": 15.125,
+      "final_scores": {
+        "clip": 0.9484536800166561,
+        "epe": 2.1396799931923547,
+        "lpips": 0.25018231457787093,
+        "ssim": 0.919730849726053,
+        "psnr": 27.93579899070619
+      },
+      "log": "logs/fork_g8_rep0.log"
+    },
+    {
+      "arm": "fork",
+      "G": 8,
+      "rep": 1,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 123.391,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.389,
+      "cpu_s_per_video": 246.549,
+      "gpu_busy_s_per_video": 0.596,
+      "straggler_s": 105.075,
+      "imbalance": 1.388,
+      "peak_loadavg": 129.27,
+      "steady_state_wall_mean_s": 15.112,
+      "final_scores": {
+        "clip": 0.9484536800166561,
+        "epe": 2.1396799931923547,
+        "lpips": 0.25018231457787093,
+        "ssim": 0.919730849726053,
+        "psnr": 27.93579899070619
+      },
+      "log": "logs/fork_g8_rep1.log"
+    },
+    {
+      "arm": "fork",
+      "G": 8,
+      "rep": 2,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 130.64,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.3674,
+      "cpu_s_per_video": 253.119,
+      "gpu_busy_s_per_video": 0.62,
+      "straggler_s": 111.713,
+      "imbalance": 1.46,
+      "peak_loadavg": 125.49,
+      "steady_state_wall_mean_s": 15.678,
+      "final_scores": {
+        "clip": 0.9484536800166561,
+        "epe": 2.1396799931923547,
+        "lpips": 0.25018231457787093,
+        "ssim": 0.919730849726053,
+        "psnr": 27.93579899070619
+      },
+      "log": "logs/fork_g8_rep2.log"
+    },
+    {
+      "arm": "ray-tuned",
+      "G": 8,
+      "rep": 0,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 125.606,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.3821,
+      "cpu_s_per_video": 247.713,
+      "gpu_busy_s_per_video": 0.628,
+      "straggler_s": 96.072,
+      "imbalance": 1.175,
+      "peak_loadavg": null,
+      "steady_state_wall_mean_s": 15.237,
+      "final_scores": {
+        "clip": 0.9484536800166561,
+        "epe": 2.1396799931923547,
+        "lpips": 0.2501823145778709,
+        "ssim": 0.919730849726053,
+        "psnr": 27.93579899070619
+      },
+      "log": "logs/ray-tuned_g8_rep0.log"
+    },
+    {
+      "arm": "ray-tuned",
+      "G": 8,
+      "rep": 1,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 127.762,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.3757,
+      "cpu_s_per_video": 248.866,
+      "gpu_busy_s_per_video": 0.607,
+      "straggler_s": 97.413,
+      "imbalance": 1.16,
+      "peak_loadavg": null,
+      "steady_state_wall_mean_s": 15.535,
+      "final_scores": {
+        "clip": 0.9484536800166561,
+        "epe": 2.1396799931923547,
+        "lpips": 0.2501823145778709,
+        "ssim": 0.919730849726053,
+        "psnr": 27.93579899070619
+      },
+      "log": "logs/ray-tuned_g8_rep1.log"
+    },
+    {
+      "arm": "ray-tuned",
+      "G": 8,
+      "rep": 2,
+      "threads_per_worker": 24,
+      "rc": 0,
+      "wall_s": 128.345,
+      "n_videos": 48,
+      "throughput_v_per_s": 0.374,
+      "cpu_s_per_video": 249.586,
+      "gpu_busy_s_per_video": 0.616,
+      "straggler_s": 96.734,
+      "imbalance": 1.153,
+      "peak_loadavg": null,
+      "steady_state_wall_mean_s": 15.909,
+      "final_scores": {
+        "clip": 0.9484536800166561,
+        "epe": 2.1396799931923547,
+        "lpips": 0.25018231457787093,
+        "ssim": 0.919730849726053,
+        "psnr": 27.93579899070619
+      },
+      "log": "logs/ray-tuned_g8_rep2.log"
+    }
+  ]
+}

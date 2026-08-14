@@ -1,0 +1,99 @@
+{
+  "launcher": "ray-tuned",
+  "world_size": 8,
+  "threads_per_worker": 24,
+  "n_shards": 8,
+  "n_videos": 8,
+  "wall_s": 77.149,
+  "peak_loadavg": null,
+  "shard_compute_s": [
+    58.289,
+    57.172,
+    55.94,
+    59.068,
+    61.36,
+    55.824,
+    56.68,
+    57.774
+  ],
+  "straggler_s": 61.36,
+  "shard_imbalance": 1.099,
+  "model_load_s": [
+    8.461,
+    8.859,
+    8.421,
+    8.486,
+    8.43,
+    8.795,
+    8.47,
+    8.504
+  ],
+  "cpu_total_s": 1449.73,
+  "gpu_busy_total_s": 99.676,
+  "cpu_seconds_per_video": 181.216,
+  "gpu_busy_seconds_per_video": 12.46,
+  "gpu_occupancy_mean": 0.216,
+  "throughput_videos_per_s": 0.1037,
+  "steady_state_wall_mean_s": 57.763,
+  "videos_per_shard": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "thread_checks": [
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    },
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    },
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    },
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    },
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    },
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    },
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    },
+    {
+      "requested": 24,
+      "actual_torch_threads": 24,
+      "omp_env": "24",
+      "mismatch": false
+    }
+  ],
+  "final_scores": {}
+}

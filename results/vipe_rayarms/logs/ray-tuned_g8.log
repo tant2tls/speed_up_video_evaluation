@@ -1,0 +1,41 @@
+$ /usr2/tanngo/vol11/miniconda3/envs/vipe-new/bin/python /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/vipe_slow/run_ray.py --videos vipe_slow/test_video --gpus 8 --threads-mode tuned --out /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_rayarms/ray-tuned_g8 --limit 8
+
+2026-08-10 21:44:41,358	WARNING utils.py:461 -- Detecting docker specified CPUs. In previous versions of Ray, CPU detection in containers was incorrect. Please ensure that Ray has enough CPUs allocated. As a temporary workaround to revert to the prior behavior, set `RAY_USE_MULTIPROCESSING_CPU_COUNT=1` as an env var before starting Ray. Set the env var: `RAY_DISABLE_DOCKER_CPU_WARNING=1` to mute this warning.
+2026-08-10 21:44:42,762	INFO worker.py:2012 -- Started a local Ray instance.
+/usr2/tanngo/vol11/miniconda3/envs/vipe-new/lib/python3.11/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+==============================================================
+ launcher     : Ray actor pool (dynamic work queue)
+ videos       : vipe_slow/test_video  (8 videos)
+ pool size    : 8 actors (1 GPU each)
+ CPU quota    : 198   | Ray detected: 198   | nproc: 256
+ threads mode : tuned   num_cpus=24.0 torch.set_num_threads(24)
+ out          : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_rayarms/ray-tuned_g8
+==============================================================
+ actor pool ready in 14.8s
+   actor 0: load=8.461s OMP=24 torch=24
+   actor 1: load=8.859s OMP=24 torch=24
+   actor 2: load=8.421s OMP=24 torch=24
+   actor 3: load=8.486s OMP=24 torch=24
+   actor 4: load=8.43s OMP=24 torch=24
+   actor 5: load=8.795s OMP=24 torch=24
+   actor 6: load=8.47s OMP=24 torch=24
+   actor 7: load=8.504s OMP=24 torch=24
+ [1/8] recam11 actor=5 wall=55.82s cpu=182.7s gpu_util=22.2% cores_busy=3.273
+ [2/8] recam3 actor=2 wall=55.94s cpu=185.7s gpu_util=23.25% cores_busy=3.319
+ [3/8] recam10 actor=6 wall=56.68s cpu=189.0s gpu_util=21.79% cores_busy=3.334
+ [4/8] recam4 actor=1 wall=57.17s cpu=167.2s gpu_util=21.71% cores_busy=2.925
+ [5/8] recam1 actor=7 wall=57.77s cpu=175.9s gpu_util=21.35% cores_busy=3.044
+ [6/8] recam5 actor=0 wall=58.29s cpu=177.1s gpu_util=21.89% cores_busy=3.038
+ [7/8] recam2 actor=3 wall=59.07s cpu=191.5s gpu_util=20.29% cores_busy=3.242
+ [8/8] recam12 actor=4 wall=61.36s cpu=180.7s gpu_util=20.28% cores_busy=2.945
+ merged       : 8 shards, 8 videos
+ videos/shard : [1, 1, 1, 1, 1, 1, 1, 1]
+ imbalance    : 1.099x (slowest 61.36s / fastest 55.8s)
+ per video    : cpu=181.216s  gpu_busy=12.46s  occupancy=0.216
+ summary      : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_rayarms/ray-tuned_g8/vipe_summary.json
+--------------------------------------------------------------
+ cold start   : 14.75s
+ compute      : 62.40s
+ wall clock   : 77.15s
+ per actor    : {0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1}

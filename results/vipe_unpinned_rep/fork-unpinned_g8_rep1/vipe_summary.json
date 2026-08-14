@@ -1,0 +1,59 @@
+{
+  "launcher": "bash-fork",
+  "world_size": 8,
+  "threads_per_worker": 0,
+  "n_shards": 8,
+  "n_videos": 8,
+  "wall_s": 226.579,
+  "peak_loadavg": 395.25,
+  "shard_compute_s": [
+    205.595,
+    195.919,
+    186.872,
+    208.228,
+    199.281,
+    204.013,
+    195.698,
+    204.684
+  ],
+  "straggler_s": 208.228,
+  "shard_imbalance": 1.114,
+  "model_load_s": [
+    9.896,
+    9.903,
+    9.994,
+    9.889,
+    9.892,
+    10.154,
+    9.928,
+    9.964
+  ],
+  "cpu_total_s": 34332.11,
+  "gpu_busy_total_s": 108.26,
+  "cpu_seconds_per_video": 4291.514,
+  "gpu_busy_seconds_per_video": 13.532,
+  "gpu_occupancy_mean": 0.068,
+  "throughput_videos_per_s": 0.0353,
+  "steady_state_wall_mean_s": 198.986,
+  "videos_per_shard": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "thread_checks": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ],
+  "final_scores": {}
+}

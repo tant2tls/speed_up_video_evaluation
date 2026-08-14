@@ -1,0 +1,179 @@
+{
+  "rank": 3,
+  "world_size": 8,
+  "threads_requested": 24,
+  "model_load_s": 16.565,
+  "compute_s": 199.779,
+  "env": {
+    "OMP_NUM_THREADS": "24",
+    "MKL_NUM_THREADS": "24",
+    "CUDA_VISIBLE_DEVICES": "3",
+    "pid": 656599,
+    "torch_num_threads": 24,
+    "torch_num_interop_threads": 128,
+    "cuda_device_count": 1
+  },
+  "thread_check": {
+    "requested": 24,
+    "actual_torch_threads": 24,
+    "omp_env": "24",
+    "mismatch": false
+  },
+  "timing": {
+    "n": 6,
+    "wall_total_s": 199.776,
+    "wall_mean_s": 33.296,
+    "cpu_total_s": 3248.41,
+    "cpu_mean_s": 541.402,
+    "gpu_total_s": 199.775,
+    "gpu_mean_s": 33.296,
+    "gpu_busy_total_s": 6.41,
+    "gpu_busy_mean_s": 1.068,
+    "cpu_parallelism": 16.26,
+    "gpu_occupancy": 0.032
+  },
+  "timing_steady_state": {
+    "n": 5,
+    "wall_total_s": 160.315,
+    "wall_mean_s": 32.063,
+    "cpu_total_s": 2638.47,
+    "cpu_mean_s": 527.694,
+    "gpu_total_s": 160.314,
+    "gpu_mean_s": 32.063,
+    "gpu_busy_total_s": 5.34,
+    "gpu_busy_mean_s": 1.068,
+    "cpu_parallelism": 16.458,
+    "gpu_occupancy": 0.033,
+    "skipped_warmup": 1
+  },
+  "per_sample": [
+    {
+      "name": "recam1_0003",
+      "wall_s": 39.46069911494851,
+      "cpu_s": 609.94,
+      "gpu_s": 39.46060546875,
+      "gpu_busy_s": 1.0707,
+      "cpu_par": 15.457,
+      "gpu_util_mean": 2.71,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0011",
+      "wall_s": 38.71898942440748,
+      "cpu_s": 604.4499999999999,
+      "gpu_s": 38.71845703125,
+      "gpu_busy_s": 1.0968,
+      "cpu_par": 15.611,
+      "gpu_util_mean": 2.83,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0019",
+      "wall_s": 31.689585516229272,
+      "cpu_s": 529.77,
+      "gpu_s": 31.689509765625,
+      "gpu_busy_s": 0.9363,
+      "cpu_par": 16.717,
+      "gpu_util_mean": 2.95,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0027",
+      "wall_s": 31.832423275336623,
+      "cpu_s": 529.8200000000002,
+      "gpu_s": 31.83234375,
+      "gpu_busy_s": 1.2311,
+      "cpu_par": 16.644,
+      "gpu_util_mean": 3.87,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0035",
+      "wall_s": 31.2070155441761,
+      "cpu_s": 516.9499999999998,
+      "gpu_s": 31.206955078125,
+      "gpu_busy_s": 1.1543,
+      "cpu_par": 16.565,
+      "gpu_util_mean": 3.7,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0043",
+      "wall_s": 26.866939513012767,
+      "cpu_s": 457.47999999999956,
+      "gpu_s": 26.8668515625,
+      "gpu_busy_s": 0.921,
+      "cpu_par": 17.028,
+      "gpu_util_mean": 3.43,
+      "extra": {}
+    }
+  ],
+  "results": [
+    {
+      "name": "recam1_0003",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9928704276680946,
+        "epe": 1.3189421892166138,
+        "lpips": 0.1161968329300483,
+        "ssim": 0.972537544866403,
+        "psnr": 33.118385314941406
+      }
+    },
+    {
+      "name": "recam1_0011",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9856985360383987,
+        "epe": 1.8157410621643066,
+        "lpips": 0.15505463319520155,
+        "ssim": 0.9494899014631907,
+        "psnr": 29.756839990615845
+      }
+    },
+    {
+      "name": "recam1_0019",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9551778957247734,
+        "epe": 2.0433483123779297,
+        "lpips": 0.20851928740739822,
+        "ssim": 0.9324770569801331,
+        "psnr": 27.94225573539734
+      }
+    },
+    {
+      "name": "recam1_0027",
+      "frames": 24,
+      "scores": {
+        "clip": 0.914503646393617,
+        "epe": 2.4291248321533203,
+        "lpips": 0.2910574773947398,
+        "ssim": 0.90884580463171,
+        "psnr": 26.417269547780354
+      }
+    },
+    {
+      "name": "recam1_0035",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9096041172742844,
+        "epe": 2.4235799312591553,
+        "lpips": 0.3598828911781311,
+        "ssim": 0.8860537682970365,
+        "psnr": 25.36158601442973
+      }
+    },
+    {
+      "name": "recam1_0043",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9008127575119337,
+        "epe": 2.843722105026245,
+        "lpips": 0.39985505615671474,
+        "ssim": 0.8674696063001951,
+        "psnr": 24.58904266357422
+      }
+    }
+  ]
+}

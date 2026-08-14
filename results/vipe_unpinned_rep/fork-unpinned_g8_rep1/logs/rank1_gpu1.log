@@ -1,0 +1,37 @@
+[rank 1/8] 1/8 videos | threads=0 (quota=198) | torch=128 | cuda_devices=1
+[rank 1] pipeline built in 9.9s
+2026-08-11 02:30:17,083 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 4.6251479992643 -> 3.8797027580440044
+2026-08-11 02:30:17,413 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 1.1496979836374521 -> 0.7884479794302024
+2026-08-11 02:30:17,744 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7558057330315933 -> 0.6866008212127781
+2026-08-11 02:30:18,164 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.935044914484024 -> 0.726463254992268
+2026-08-11 02:30:18,378 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7545772162156936 -> 0.752724086658418
+2026-08-11 02:30:18,592 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.767999803460043 -> 0.767423215751478
+2026-08-11 02:30:18,801 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7655915650302632 -> 0.7653013092349283
+2026-08-11 02:30:19,145 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 4.014845333698759 -> 3.8174817538820207
+2026-08-11 02:30:19,480 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 1.169775358401239 -> 0.8123873902368359
+2026-08-11 02:30:19,806 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7657963468227535 -> 0.6913740691234125
+2026-08-11 02:30:20,137 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7353609856581897 -> 0.7241376916099398
+2026-08-11 02:30:20,467 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7454162517260556 -> 0.7429809680634207
+2026-08-11 02:30:20,797 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7539231291902979 -> 0.7534771246082528
+2026-08-11 02:30:21,130 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7523580474226037 -> 0.7520660218069679
+2026-08-11 02:30:21,456 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7515122350414458 -> 0.7514085686088947
+2026-08-11 02:30:21,777 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7452859795430413 -> 0.7452601827826584
+2026-08-11 02:30:22,100 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7411633767496824 -> 0.7411325946668512
+2026-08-11 02:30:22,427 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7356190457976481 -> 0.7356046398635954
+2026-08-11 02:30:22,756 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7320711573320295 -> 0.7320660545265127
+2026-08-11 02:30:23,164 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7275830555590801 -> 0.7272342093601765
+2026-08-11 02:30:23,370 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7242028959808522 -> 0.7242017772441613
+2026-08-11 02:30:23,575 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7202039745261573 -> 0.7202027892271872
+2026-08-11 02:30:23,780 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7173630451543431 -> 0.7173622760346916
+2026-08-11 02:30:23,995 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7138519201289455 -> 0.7138511935536371
+2026-08-11 02:30:24,199 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7115657726644713 -> 0.7115651427884586
+2026-08-11 02:30:24,405 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7085035502022947 -> 0.7085028541223437
+2026-08-11 02:30:24,609 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7062554013937188 -> 0.7062548139256251
+2026-08-11 02:30:24,827 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7036862113545794 -> 0.7036855920305243
+2026-08-11 02:30:25,042 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.7017493947168987 -> 0.7017485438482254
+2026-08-11 02:30:25,256 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.6994458376175317 -> 0.6994452578419441
+2026-08-11 02:30:25,471 - vipe.slam.components.buffer - INFO - BA iters = 16, energy: 0.6977597577097185 -> 0.6977590335081914
+2026-08-11 02:31:21,185 - vipe.pipeline.default - INFO - Saving artifacts to ArtifactPath(base_path=PosixPath('/prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_unpinned_rep/fork-unpinned_g8_rep1/artifacts'), artifact_name='recam10')
+2026-08-11 02:31:33,274 - vipe.pipeline.processors - INFO - Minimum UV score: 0.4500
+[rank 1] 1/1 recam10 wall=194.85s cpu=4528.1s gpu_util=6.83% cores_busy=23.2
+[rank 1] DONE 1 videos in 195.9s -> /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_unpinned_rep/fork-unpinned_g8_rep1/shard_1.json

@@ -1,0 +1,20 @@
+[rank 2/4] 12/48 videos | threads=49 (quota=198) | torch=49 | cuda_devices=1 | policy=original
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+/usr2/tanngo/vol11/miniconda3/envs/vipe-new/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/usr2/tanngo/vol11/miniconda3/envs/vipe-new/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+[rank 2] models loaded in 11.0s
+[rank 2] 1/12 recam1_0002 wall=21.15s cpu=618.4s gpu_busy=0.94s gpu_util=4.46% cores_busy=29.2
+[rank 2] 2/12 recam1_0006 wall=17.67s cpu=570.4s gpu_busy=0.93s gpu_util=5.24% cores_busy=32.3
+[rank 2] 3/12 recam1_0010 wall=18.42s cpu=580.8s gpu_busy=1.01s gpu_util=5.48% cores_busy=31.5
+[rank 2] 4/12 recam1_0014 wall=17.18s cpu=550.7s gpu_busy=1.03s gpu_util=6.02% cores_busy=32.1
+[rank 2] 5/12 recam1_0018 wall=16.81s cpu=546.8s gpu_busy=0.95s gpu_util=5.64% cores_busy=32.5
+[rank 2] 6/12 recam1_0022 wall=16.57s cpu=538.8s gpu_busy=1.08s gpu_util=6.52% cores_busy=32.5
+[rank 2] 7/12 recam1_0026 wall=16.69s cpu=544.6s gpu_busy=1.13s gpu_util=6.75% cores_busy=32.6
+[rank 2] 8/12 recam1_0030 wall=16.35s cpu=526.0s gpu_busy=1.04s gpu_util=6.36% cores_busy=32.2
+[rank 2] 9/12 recam1_0034 wall=16.66s cpu=542.5s gpu_busy=0.97s gpu_util=5.82% cores_busy=32.6
+[rank 2] 10/12 recam1_0038 wall=16.84s cpu=550.0s gpu_busy=1.11s gpu_util=6.59% cores_busy=32.7
+[rank 2] 11/12 recam1_0042 wall=16.76s cpu=548.6s gpu_busy=1.11s gpu_util=6.61% cores_busy=32.7
+[rank 2] 12/12 recam1_0046 wall=16.92s cpu=556.8s gpu_busy=1.07s gpu_util=6.33% cores_busy=32.9
+[rank 2] DONE 12 videos in 208.0s -> /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_main/fork_g4/shard_2.json

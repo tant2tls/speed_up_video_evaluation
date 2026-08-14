@@ -1,0 +1,170 @@
+{
+  "rank": 3,
+  "world_size": 8,
+  "threads_requested": 24,
+  "model_load_s": 13.708,
+  "compute_s": 151.308,
+  "thread_check": {
+    "requested": 24,
+    "actual_torch_threads": 24,
+    "omp_env": "24",
+    "mismatch": false
+  },
+  "timing": {
+    "n": 6,
+    "wall_total_s": 151.308,
+    "wall_mean_s": 25.218,
+    "cpu_total_s": 2576.99,
+    "cpu_mean_s": 429.498,
+    "gpu_total_s": 151.307,
+    "gpu_mean_s": 25.218,
+    "gpu_busy_total_s": 6.578,
+    "gpu_busy_mean_s": 1.096,
+    "cpu_parallelism": 17.031,
+    "gpu_occupancy": 0.043
+  },
+  "timing_steady_state": {
+    "n": 5,
+    "wall_total_s": 126.596,
+    "wall_mean_s": 25.319,
+    "cpu_total_s": 2152.39,
+    "cpu_mean_s": 430.478,
+    "gpu_total_s": 126.595,
+    "gpu_mean_s": 25.319,
+    "gpu_busy_total_s": 5.52,
+    "gpu_busy_mean_s": 1.104,
+    "cpu_parallelism": 17.002,
+    "gpu_occupancy": 0.044,
+    "skipped_warmup": 1
+  },
+  "per_sample": [
+    {
+      "name": "recam1_0004",
+      "wall_s": 24.71197464130819,
+      "cpu_s": 424.6,
+      "gpu_s": 24.7118125,
+      "gpu_busy_s": 1.0585,
+      "cpu_par": 17.182,
+      "gpu_util_mean": 4.28,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0010",
+      "wall_s": 25.80710232630372,
+      "cpu_s": 433.12,
+      "gpu_s": 25.8070546875,
+      "gpu_busy_s": 0.9646,
+      "cpu_par": 16.783,
+      "gpu_util_mean": 3.74,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0020",
+      "wall_s": 25.427466545253992,
+      "cpu_s": 435.13,
+      "gpu_s": 25.427392578125,
+      "gpu_busy_s": 1.27,
+      "cpu_par": 17.113,
+      "gpu_util_mean": 4.99,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0027",
+      "wall_s": 25.32762117870152,
+      "cpu_s": 431.28,
+      "gpu_s": 25.32761328125,
+      "gpu_busy_s": 1.0799,
+      "cpu_par": 17.028,
+      "gpu_util_mean": 4.26,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0035",
+      "wall_s": 25.228546231985092,
+      "cpu_s": 431.4599999999998,
+      "gpu_s": 25.228560546875,
+      "gpu_busy_s": 1.1361,
+      "cpu_par": 17.102,
+      "gpu_util_mean": 4.5,
+      "extra": {}
+    },
+    {
+      "name": "recam1_0043",
+      "wall_s": 24.804806722328067,
+      "cpu_s": 421.4000000000001,
+      "gpu_s": 24.80468359375,
+      "gpu_busy_s": 1.0691,
+      "cpu_par": 16.989,
+      "gpu_util_mean": 4.31,
+      "extra": {}
+    }
+  ],
+  "results": [
+    {
+      "name": "recam1_0004",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9917857199907303,
+        "epe": 1.3089135885238647,
+        "lpips": 0.11693280811111133,
+        "ssim": 0.9726888661583265,
+        "psnr": 32.92426919937134
+      }
+    },
+    {
+      "name": "recam1_0010",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9867959121863047,
+        "epe": 1.7102397680282593,
+        "lpips": 0.147024005651474,
+        "ssim": 0.9579966689149538,
+        "psnr": 30.589410305023193
+      }
+    },
+    {
+      "name": "recam1_0020",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9400366817911466,
+        "epe": 2.0301151275634766,
+        "lpips": 0.2151751145720482,
+        "ssim": 0.9341287141044935,
+        "psnr": 28.003651062647503
+      }
+    },
+    {
+      "name": "recam1_0027",
+      "frames": 24,
+      "scores": {
+        "clip": 0.914503646393617,
+        "epe": 2.4291248321533203,
+        "lpips": 0.2910574773947398,
+        "ssim": 0.90884580463171,
+        "psnr": 26.417269547780354
+      }
+    },
+    {
+      "name": "recam1_0035",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9096041172742844,
+        "epe": 2.4235799312591553,
+        "lpips": 0.3598828911781311,
+        "ssim": 0.8860537682970365,
+        "psnr": 25.36158601442973
+      }
+    },
+    {
+      "name": "recam1_0043",
+      "frames": 24,
+      "scores": {
+        "clip": 0.9008127575119337,
+        "epe": 2.843722105026245,
+        "lpips": 0.39985505615671474,
+        "ssim": 0.8674696063001951,
+        "psnr": 24.58904266357422
+      }
+    }
+  ]
+}

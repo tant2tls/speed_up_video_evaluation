@@ -1,0 +1,22 @@
+$ /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/movebench/run_fork.sh --dataset data/eval81_jitter --gpus 0,1,2,3,4,5,6,7 --out /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_jitter_rep/fork_g8_rep1 --limit 48 --max-frames 24
+
+==============================================================
+ launcher     : bash-fork (one process per GPU)
+ dataset      : /usr2/tanngo/vol22/PhD/ray_learning/speed_up_video_evaluation/data/eval81_jitter
+ GPUs         : 0,1,2,3,4,5,6,7  (world_size=8)
+ CPU quota    : 198   (nproc reports 256 -- the host, not us)
+ threads/proc : 24   (198 / 8)
+ total threads: 192 vs quota 198
+ out          : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_jitter_rep/fork_g8_rep1
+==============================================================
+--------------------------------------------------------------
+ wall clock   : 123.11s
+ peak loadavg : 129.27  (quota 198)
+ merged       : 8 shards, 48 videos
+   tree-reduce round 1: 8 -> 4  (r0+r1) (r2+r3) (r4+r5) (r6+r7)
+   tree-reduce round 2: 4 -> 2  ((r0+r1)+(r2+r3)) ((r4+r5)+(r6+r7))
+   tree-reduce round 3: 2 -> 1  (((r0+r1)+(r2+r3))+((r4+r5)+(r6+r7)))
+ scores       : clip=0.9485  epe=2.1397  lpips=0.2502  ssim=0.9197  psnr=27.9358
+ imbalance    : 1.388x (slowest shard 105.075s / fastest 75.7s)
+ per video    : cpu=246.549s  gpu_busy=0.596s
+ summary      : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/movebench_jitter_rep/fork_g8_rep1/summary.json

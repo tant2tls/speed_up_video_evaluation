@@ -1,0 +1,18 @@
+$ /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/vipe_slow/run_fork.sh --videos vipe_slow/test_video --gpus 0 --out /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_unpinned/fork-unpinned_g1 --limit 8
+
+==============================================================
+ launcher     : bash-fork (one ViPE process per GPU)
+ videos       : /usr2/tanngo/vol22/PhD/ray_learning/speed_up_video_evaluation/vipe_slow/test_video
+ GPUs         : 0  (world_size=1)
+ CPU quota    : 198   (nproc reports 256)
+ threads/proc : UNPINNED (torch default ~128; expect a cold-start storm)
+ out          : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_unpinned/fork-unpinned_g1
+==============================================================
+--------------------------------------------------------------
+ wall clock   : 435.80s
+ peak loadavg : 28.64  (quota 198)
+ merged       : 1 shards, 8 videos
+ videos/shard : [8]
+ imbalance    : 1.0x (slowest 421.662s / fastest 421.7s)
+ per video    : cpu=691.291s  gpu_busy=12.497s  occupancy=0.237
+ summary      : /prj/corp/airesearch/lasvegas/vol22-scratch/users/tanngo/PhD/ray_learning/speed_up_video_evaluation/results/vipe_unpinned/fork-unpinned_g1/vipe_summary.json
