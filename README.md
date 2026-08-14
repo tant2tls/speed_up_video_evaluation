@@ -12,43 +12,8 @@ the wrong move — in opposite directions.
 more CPU time than GPU time** and left the GPU **93% idle**. Once that's true your limit is *CPU
 cores per worker* — and **adding GPUs divides them**.
 
-> 📖 This README is the overview: the transferable rules and the findings.
+> 📖 This README is the overview: the tips you can use today, then the results.
 > **Every measurement, method, reversal and caveat is in [`report.md`](report.md).**
-
----
-
-## ⭐ Results at a glance
-
-**How long one video takes, at each GPU count.** Same work, same box — only the GPU count and
-the host configuration change. 🟢 marks each row's best, and the row that *gets worse* as you add
-GPUs is the whole point of this repo:
-
-| | 1 GPU | 2 GPUs | 4 GPUs | 8 GPUs | best |
-|---|---:|---:|---:|---:|---|
-| **movebench** — no thread limit *(the obvious way)* | 14.85 s | 🟢 **9.09 s** | 32.80 s 💥 | 39.29 s 💥 | **2 GPUs** |
-| **movebench** — threads capped to `quota ÷ GPUs` | 14.77 s | 7.33 s | 4.85 s | 🟢 **3.75 s** | 8 GPUs |
-| **movebench** — capped **+** metrics moved onto the GPU | 3.14 s | 1.69 s | 1.02 s | 🟢 **0.71 s** 🚀 | 8 GPUs |
-| **ViPE** — as production ships it *(no thread limit)* | 56.03 s | 30.67 s | 🟢 **23.07 s** | 24.27 s ⚠️ | **4 GPUs** |
-| **ViPE** — threads capped | 55.02 s | 29.40 s | 15.99 s | 🟢 **10.08 s** | 8 GPUs |
-
-*movebench = 48 videos × 24 frames; ViPE = 8 videos × 81 frames. Per-video times aren't
-comparable between the two workloads — the ratios and the shape of each row are.*
-
-Two rows peak before 8 GPUs and then get *worse* — **movebench at 2, ViPE at 4** — and in both
-cases the cause is the host, not the GPUs. Cap the threads and both rows become monotonic. 📉 That
-turning point is the **death-linear point** ([§2](#2--the-death-linear-point-)).
-
-### 🚀 And on a fixed 8 GPUs, the host config is worth 55×
-
-| 48 videos, 8 GPUs | wall | per video | cumulative |
-|---|---:|---:|---:|
-| no thread limit, metrics on CPU — *the obvious way* | 1885.7 s | 39.29 s | 1.00× |
-| **+** threads capped to `quota ÷ GPUs` | 180.1 s | 3.75 s | **10.47×** ⚡ |
-| **+** LPIPS/SSIM/PSNR moved onto the accelerator | **34.2 s** | **0.71 s** | **55.10×** 🚀 |
-
-The two factors multiply almost exactly (10.47 × 5.26 = 55.10), which is the evidence they fix
-*independent* problems. **Adding the other 7 GPUs was worth 3.94× — the host fixes were ~14× more
-valuable than the hardware.**
 
 ---
 
@@ -95,6 +60,41 @@ explicit local paths, and verify the load path is a no-op offline. *(DiffSynth s
 
 > 🧠 **Profile before you scale.** The GPU count belongs in the profile, not in the launch script
 > as `--gpus all` — the resource that limits an ML workload is usually not the one it's named after.
+
+---
+
+## ⭐ Overview results
+
+**How long one video takes, at each GPU count.** Same work, same box — only the GPU count and
+the host configuration change. 🟢 marks each row's best, and the row that *gets worse* as you add
+GPUs is the whole point of this repo:
+
+| | 1 GPU | 2 GPUs | 4 GPUs | 8 GPUs | best |
+|---|---:|---:|---:|---:|---|
+| **movebench** — no thread limit *(the obvious way)* | 14.85 s | 🟢 **9.09 s** | 32.80 s 💥 | 39.29 s 💥 | **2 GPUs** |
+| **movebench** — threads capped to `quota ÷ GPUs` | 14.77 s | 7.33 s | 4.85 s | 🟢 **3.75 s** | 8 GPUs |
+| **movebench** — capped **+** metrics moved onto the GPU | 3.14 s | 1.69 s | 1.02 s | 🟢 **0.71 s** 🚀 | 8 GPUs |
+| **ViPE** — as production ships it *(no thread limit)* | 56.03 s | 30.67 s | 🟢 **23.07 s** | 24.27 s ⚠️ | **4 GPUs** |
+| **ViPE** — threads capped | 55.02 s | 29.40 s | 15.99 s | 🟢 **10.08 s** | 8 GPUs |
+
+*movebench = 48 videos × 24 frames; ViPE = 8 videos × 81 frames. Per-video times aren't
+comparable between the two workloads — the ratios and the shape of each row are.*
+
+Two rows peak before 8 GPUs and then get *worse* — **movebench at 2, ViPE at 4** — and in both
+cases the cause is the host, not the GPUs. Cap the threads and both rows become monotonic. 📉 That
+turning point is the **death-linear point** ([§2](#2--the-death-linear-point-)).
+
+### 🚀 And on a fixed 8 GPUs, the host config is worth 55×
+
+| 48 videos, 8 GPUs | wall | per video | cumulative |
+|---|---:|---:|---:|
+| no thread limit, metrics on CPU — *the obvious way* | 1885.7 s | 39.29 s | 1.00× |
+| **+** threads capped to `quota ÷ GPUs` | 180.1 s | 3.75 s | **10.47×** ⚡ |
+| **+** LPIPS/SSIM/PSNR moved onto the accelerator | **34.2 s** | **0.71 s** | **55.10×** 🚀 |
+
+The two factors multiply almost exactly (10.47 × 5.26 = 55.10), which is the evidence they fix
+*independent* problems. **Adding the other 7 GPUs was worth 3.94× — the host fixes were ~14× more
+valuable than the hardware.**
 
 ---
 
