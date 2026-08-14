@@ -39,6 +39,25 @@ a 198-CPU quota. GPU utilization fell to 0.33%.
   this project records NVML GPU-busy time to distinguish active compute from
   an idle GPU holding a stream.
 
+## 🧠 Helpful tips
+
+- **Set thread limits before importing PyTorch.** `OMP_NUM_THREADS`,
+  `MKL_NUM_THREADS`, and `OPENBLAS_NUM_THREADS` must be set before a worker
+  imports its numerical libraries. Changing them later may not resize an
+  existing thread pool.
+- **Check `torchrun` explicitly.** When `OMP_NUM_THREADS` is unset, it commonly
+  sets the value to `1`. That avoids oversubscription, but can leave CPU-heavy
+  stages underused.
+- **Do not trust Ray's defaults.** In this project, Ray's `auto` mode gives each
+  actor one CPU thread. Use the `ray-tuned` arm, which requests
+  `quota / GPU workers` CPUs and sets PyTorch's thread count in every actor.
+- **Warm and persist model caches.** The first run may download checkpoints or
+  compile extensions. Keep caches on persistent node-local storage and exclude
+  cold-start work from performance timing.
+- **Record effective settings.** Save the GPU count, CPU quota, thread count,
+  and cache state with each result; otherwise identical commands can produce
+  misleading comparisons.
+
 ## 🧰 Workloads and tools
 
 | Path | Purpose |
