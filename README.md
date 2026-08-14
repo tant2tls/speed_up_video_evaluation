@@ -52,45 +52,49 @@ valuable than the hardware.**
 
 ---
 
-## 🧠 The four lessons that cost the most time
+## 💡 Helpful tips
 
-Nothing here is specific to these pipelines or this box. Each lesson is stated generally, with
-what it was worth here as the evidence. *All nine, with numbers:
-[`report.md` §13](report.md#13--nine-engineering-lessons).*
+Six things worth checking before you blame the GPU — none of them specific to these pipelines.
+*Full write-ups with the numbers: [`report.md` §13](report.md#13--nine-engineering-lessons).*
 
-**🥇 Divide the CPU budget explicitly, before `import torch`.**
-Every worker sizes its thread pool for the *whole* machine — it has no idea its siblings exist.
-Set `OMP_NUM_THREADS = quota ÷ workers` yourself, and set it *before* torch loads: it fixes the
-pool at import, so a later `os.environ[...]` is a silent no-op. Watch both walls of the thread
-U-curve — the floor sits where `total_threads == physical cores`, and oversubscription is the
-worse side (512 threads came out slower than 64). Beware two defaults at opposite walls:
-`torchrun` silently forces `OMP_NUM_THREADS=1`, while plain `python` lets torch grab half the
-host. **Worth 10.47× here. One line.**
+**🧵 Split the CPU budget across workers yourself — before `import torch`.**
+Each worker sizes its thread pool for the whole machine, unaware the others exist, so `N` workers
+ask for `N ×` the box. Set `OMP_NUM_THREADS = quota ÷ workers`; after torch loads it's a silent
+no-op. The two defaults sit at opposite extremes: `torchrun` quietly forces 1 thread, plain
+`python` lets torch grab half the host.
 
-**🥈 Ask *where* your math runs, not just how it's scheduled.**
-Tuning the scheduler around a stage that's on the wrong device is treating the symptom. Check
-which tensors never leave the host. **Moving three metrics onto the GPU was another 5.26× and cut
-CPU-seconds per video 57×** — bigger than any scheduling change measured.
+**⚡ Ray defaults to one CPU per actor — which means one thread.**
+It reads the cgroup quota correctly, then maps `num_cpus` (default **1**) onto
+`OMP_NUM_THREADS`, so every actor is single-threaded while most of the box sits idle. Set
+`num_cpus` explicitly *and* call `torch.set_num_threads()` inside the actor — `num_cpus` alone is
+import-order dependent.
 
-**🥉 In a container, `nproc` doesn't report your quota.**
-It reports the host's CPUs; your cgroup enforces something smaller, and throttling doesn't shrink
-the affinity mask — you can spawn far more threads than you may run, then all of them freeze. No
-error, only slowness. Read the quota (Docker, Kubernetes, Slurm and RunAI all have this gap) and
-size pools from that.
+**🎯 Ask *where* your math runs, not just how it's scheduled.**
+Scheduling around a stage that's on the wrong device treats the symptom. Look for tensors that
+never leave the host; one unnoticed CPU-resident stage can dominate everything else.
 
-**4️⃣ ⚠️ Careful with DiffSynth — the default re-downloads checkpoints you already have, and the
-lock kills the job.**
-`ModelConfig.download()` queries the hub at *every* rank start even when the weights are local
-(5 calls/rank, one a hidden tokenizer the launch script never names). Each grabs a ModelScope
-file lock with `timeout=None`, so if the cache sits on an NFS `$HOME` mounted in every container
-that lock is **fleet-global**: 96 ranks serialize to download *nothing*, block forever waiting on
-each other, and the NCCL watchdog eventually kills the run. Fix — `export
-DIFFSYNTH_SKIP_DOWNLOAD=true` (only the literal `true` parses) plus a node-local cache: **load
-phase 9 m 06 s → ≈44 s**, GPU desync 267 s → ≈11 s.
+**🔍 In a container, `nproc` doesn't report your quota.**
+It reports the host. Throttling doesn't shrink the affinity mask, so you can spawn far more threads
+than you may actually run — then all of them freeze once the quota burns. No error, just slowness.
+Read the cgroup quota (Docker, Kubernetes, Slurm and RunAI all have this gap).
+
+**🌐 On multi-node, check what else is on the network before you trust a timing.**
+Anything shared — NFS, an object store, a download lock, the interconnect — behaves like a
+different machine depending on who else is using it. On a quiet network a job flies; on a busy one
+the same binary crawls or dies, because contention grows *super-linearly* in rank count while
+collective timeouts stay fixed. What merely wasted time at low load starts tripping watchdogs at
+high load. **Measure at different times of day, keep per-rank timestamps, and treat one run on a
+shared filesystem as a lower bound.**
+
+**📦 Check what your framework does at *every* rank start.**
+Loaders often re-query a model hub even when the weights are already local, and hold a lock while
+doing it. Put that lock on a shared filesystem and it becomes fleet-global: ranks block on each
+other waiting to download nothing, until a watchdog kills the job. Keep caches node-local, pass
+explicit local paths, and verify the load path is a no-op offline. *(DiffSynth specifically:
+`export DIFFSYNTH_SKIP_DOWNLOAD=true` — only the literal `true` parses.)*
 
 > 🧠 **Profile before you scale.** The GPU count belongs in the profile, not in the launch script
-> as `--gpus all` — and the resource that limits an ML workload is usually not the one the
-> workload is named after.
+> as `--gpus all` — the resource that limits an ML workload is usually not the one it's named after.
 
 ---
 
