@@ -83,7 +83,7 @@ The measured results show two useful patterns:
 2. In the ViPE production configuration, four GPUs initially beat eight because every
    worker decoded video at once; after capping threads, eight GPUs became faster.
 
-## ⚠️ Practical pitfalls
+## 💡 Helpful tips
 
 - **Set thread limits before importing PyTorch.** `OMP_NUM_THREADS`, `MKL_NUM_THREADS`,
   and `OPENBLAS_NUM_THREADS` must be set before a worker imports its numerical libraries.
