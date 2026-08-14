@@ -83,6 +83,22 @@ The measured results show two useful patterns:
 2. In the ViPE production configuration, four GPUs initially beat eight because every
    worker decoded video at once; after capping threads, eight GPUs became faster.
 
+## ⚠️ Practical pitfalls
+
+- **Set thread limits before importing PyTorch.** `OMP_NUM_THREADS`, `MKL_NUM_THREADS`,
+  and `OPENBLAS_NUM_THREADS` must be set before a worker imports its numerical libraries.
+  Changing them later may not resize an existing thread pool.
+- **Check `torchrun` explicitly.** It commonly sets `OMP_NUM_THREADS=1` when the variable
+  is unset. This prevents oversubscription, but it can leave CPU-heavy work underused.
+- **Do not trust Ray's defaults.** Ray's `auto` mode in this project gives actors one
+  CPU thread. Use the `ray-tuned` arm, which requests `quota / GPU workers` CPUs and sets
+  PyTorch's thread count inside each actor.
+- **Warm and persist model caches.** A first run may download checkpoints or compile
+  extensions. Keep caches on node-local persistent storage (including when using tools
+  such as DiffSynth) and exclude that cold-start work from performance timing.
+- **Record the effective settings.** Save the GPU count, CPU quota, thread count, and
+  cache state with each result; otherwise two runs with the same command can be misleading.
+
 ## 🚀 Install
 
 ```bash
