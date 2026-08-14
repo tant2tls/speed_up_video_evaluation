@@ -1,105 +1,86 @@
-# ⚡ More GPUs Is Not Always Faster
+# Faster Video Evaluation Through Better Resource Scheduling
 
-This repository measures how video evaluation scales across GPUs. Its purpose is
-simple: help you choose a GPU count and CPU-thread budget that make the pipeline
-faster, instead of assuming that every available GPU should run.
+This repository measures and improves multi-GPU video evaluation. Its central
+lesson is simple: adding GPUs only helps when the host CPU can keep their workers
+fed. For CPU-heavy pipelines, an uncontrolled thread pool can make eight GPUs
+slower than one.
 
-## ⭐ The finding
+## Results at a glance
 
-Two video pipelines were tested on 1, 2, 4, and 8 NVIDIA H100 GPUs. The bottleneck
-was often the host CPU, not the GPU. Starting one worker per GPU without limiting
-CPU threads made workers compete for the same cores; in one case, the GPUs were only
-7.3% busy.
+Measurements were made on 8× NVIDIA H100 80 GB GPUs with a Docker CPU quota of
+198 cores. The MoveBench evaluation ran 48 video pairs, using 24 frames per
+video.
 
-| 48-video evaluation on 8 H100s | Wall time | Speedup |
+| 8-GPU configuration | Wall time | Improvement |
 |---|---:|---:|
-| Default threads; metrics on CPU | 1885.7 s | 1.0× |
-| CPU threads split across workers | 180.1 s | 10.5× |
-| Metrics moved to GPU | **34.2 s** | **55.1×** |
+| Default CPU threading; metrics on CPU | 1,885.7 s | baseline |
+| CPU threads divided across workers | 180.1 s | 10.47× faster |
+| Thread tuning + metrics placed on GPU | **34.2 s** | **55.10× faster** |
 
-> 💡 **Takeaway:** profile the workload first. More GPUs help only while the CPU
-> can keep every GPU worker supplied with work.
+The original bottleneck was host-side work, not GPU compute: the default setup
+requested 128 CPU threads per worker—1,024 threads across eight workers—despite
+a 198-CPU quota. GPU utilization fell to 0.33%.
 
-## 🧠 Why this happens
+> Read the [detailed measurement report](report.md) for
+> methodology, all sweep results, caveats, and the engineering lessons behind
+> these numbers.
 
-PyTorch and NumPy create CPU thread pools. With eight GPU workers, letting every
-worker use the machine-wide default can request far more threads than the job has
-CPUs. The result is CPU throttling, cache contention, and idle GPUs.
+## Key findings
 
-| Configuration | Threads per worker | Total requested | Result |
-|---|---:|---:|---|
-| Uncapped default | 128 | 1024 | 💥 5× over a 198-CPU quota |
-| Capped | 24 | 192 | ✅ fits the quota |
+- Treat GPU count and CPU threads per worker as one tuning decision. Start with:
+  `floor(available CPU quota / GPU workers)`.
+- Detect the CPU quota available to the job. In containers, `nproc` can report
+  host CPUs rather than the cgroup limit; `common/resources.py` handles this.
+- Set `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, and `OPENBLAS_NUM_THREADS` before
+  importing PyTorch or NumPy.
+- Do not rely on launcher defaults. `torchrun` may set one thread per process,
+  while Ray's default actor allocation may also underuse the CPU.
+- Profile actual device activity. CUDA event duration can include host waiting;
+  this project records NVML GPU-busy time to distinguish active compute from
+  an idle GPU holding a stream.
 
-Use this rule for one process per GPU:
+## Workloads and tools
 
-```text
-threads per worker = floor(CPU budget / number of GPU workers)
-```
+| Path | Purpose |
+|---|---|
+| `movebench/` | Video-quality and motion evaluation: CLIP, EPE, LPIPS, SSIM, PSNR, and FVD |
+| `vipe_slow/` | NVIDIA ViPE camera-pose and metric-depth evaluation |
+| `common/resources.py` | Cgroup-aware CPU-quota detection and per-worker thread calculation |
+| `exp_gpu_sweep.py` | Reproducible GPU-count and launcher comparison sweep |
+| `results/` | Committed summaries, worker shards, and load traces behind the report |
 
-`common/resources.py` reads the CPU budget actually available to the job, including
-container cgroup limits. Do not size the pool from `nproc` alone.
+The two workloads scale differently. With threads capped, the CPU-heavier
+MoveBench evaluation reached 3.93× speedup on eight GPUs, while ViPE reached
+5.45×. In ViPE's production configuration, four GPUs initially beat eight;
+the report reproduces that result and isolates its cause.
 
-## 💡 Helpful tips
+## Run on your hardware
 
-- **Set thread limits before importing PyTorch.** `OMP_NUM_THREADS`, `MKL_NUM_THREADS`,
-  and `OPENBLAS_NUM_THREADS` must be set before a worker imports its numerical libraries.
-  Changing them later may not resize an existing thread pool.
-- **Check `torchrun` explicitly.** It commonly sets `OMP_NUM_THREADS=1` when the variable
-  is unset. This prevents oversubscription, but it can leave CPU-heavy work underused.
-- **Do not trust Ray's defaults.** Ray's `auto` mode in this project gives actors one
-  CPU thread. Use the `ray-tuned` arm, which requests `quota / GPU workers` CPUs and sets
-  PyTorch's thread count inside each actor.
-- **Warm and persist model caches.** A first run may download checkpoints or compile
-  extensions. Keep caches on node-local persistent storage (including when using tools
-  such as DiffSynth) and exclude that cold-start work from performance timing.
-- **Record the effective settings.** Save the GPU count, CPU quota, thread count, and
-  cache state with each result; otherwise two runs with the same command can be misleading.
-
-## 🛠️ Run on your hardware
-
-First, inspect the CPU allocation visible to the job:
+Inspect the CPUs that your job can really use:
 
 ```bash
 python common/resources.py
 ```
 
-Then sweep only GPU counts that exist on your machine:
+Sweep the GPU counts available on your machine:
 
 ```bash
 python exp_gpu_sweep.py --workload movebench --dataset data/eval81 \
   --gpus 1 2 4 --arms fork --limit 48 --max-frames 24 --tag my-hardware
 ```
 
-For a direct run, select GPU IDs and set threads per worker. For example, with
-32 available CPUs and four GPU workers, use eight threads each:
+For a direct four-GPU run with a 32-CPU allocation, give each worker eight
+threads:
 
 ```bash
 THREADS=8 movebench/run_fork.sh --dataset data/eval81 --gpus 0,1,2,3
 ```
 
-> ⚠️ In `exp_gpu_sweep.py`, `--gpus 1 2 4` means GPU **counts** to test. In
-> `movebench/run_fork.sh`, `--gpus 0,1,2,3` means GPU **IDs** to use.
+`exp_gpu_sweep.py --gpus 1 2 4` specifies GPU *counts*. In contrast,
+`run_fork.sh --gpus 0,1,2,3` specifies GPU *IDs*. If `THREADS` is unset,
+`run_fork.sh` selects `floor(available CPUs / selected GPUs)` automatically.
 
-If `THREADS` is unset, `run_fork.sh` automatically uses
-`floor(available CPUs / selected GPUs)`. Start with one GPU and increase the count
-only while the measured wall time improves.
-
-## 📊 What is included
-
-- `movebench/` — video-quality and motion evaluation (CLIP, EPE, LPIPS, SSIM, PSNR, FVD)
-- `vipe_slow/` — NVIDIA ViPE camera-pose and metric-depth pipeline
-- `exp_gpu_sweep.py` — runner for GPU-count and launcher comparisons
-- `common/resources.py` — CPU quota detection and per-worker thread calculation
-- `results/` — committed summaries, worker shards, and load traces behind the numbers
-
-The measured results show two useful patterns:
-
-1. Capping CPU threads made the evaluation pipeline scale monotonically to eight GPUs.
-2. In the ViPE production configuration, four GPUs initially beat eight because every
-   worker decoded video at once; after capping threads, eight GPUs became faster.
-
-## 🚀 Install
+## Installation
 
 ```bash
 conda create -n vipe-new python=3.11 -y
@@ -110,6 +91,6 @@ uv pip install -r requirements.txt
 cd vipe_slow && pip install -e . --no-build-isolation && cd ..
 ```
 
-The original measurements used 8× H100 80 GB GPUs and a 198-CPU Docker cgroup quota.
-Your best GPU count will depend on your own CPU allocation, GPU type, dataset, and
-whether the CPU-heavy stages run on the host or the GPU.
+Your best GPU count depends on the CPU quota, GPU model, dataset, and which
+stages execute on the host. Measure one GPU first, then add GPUs only while
+end-to-end wall time improves.

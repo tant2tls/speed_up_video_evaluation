@@ -2,8 +2,8 @@
 data/
 _archive/
 
-# Private working notes. The README is the shareable project overview.
-report.md
+# Private working notes. The root report is the shareable detailed companion to
+# the README and is intentionally versioned.
 
 # Local AI-assistant instructions and session state.
 CLAUDE.md
