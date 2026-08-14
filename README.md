@@ -1,11 +1,11 @@
-# Faster Video Evaluation Through Better Resource Scheduling
+# ⚡ Faster Video Evaluation Through Better Resource Scheduling
 
 This repository measures and improves multi-GPU video evaluation. Its central
 lesson is simple: adding GPUs only helps when the host CPU can keep their workers
 fed. For CPU-heavy pipelines, an uncontrolled thread pool can make eight GPUs
 slower than one.
 
-## Results at a glance
+## ⭐ Results at a glance
 
 Measurements were made on 8× NVIDIA H100 80 GB GPUs with a Docker CPU quota of
 198 cores. The MoveBench evaluation ran 48 video pairs, using 24 frames per
@@ -25,7 +25,7 @@ a 198-CPU quota. GPU utilization fell to 0.33%.
 > methodology, all sweep results, caveats, and the engineering lessons behind
 > these numbers.
 
-## Key findings
+## 💡 Key findings
 
 - Treat GPU count and CPU threads per worker as one tuning decision. Start with:
   `floor(available CPU quota / GPU workers)`.
@@ -39,7 +39,7 @@ a 198-CPU quota. GPU utilization fell to 0.33%.
   this project records NVML GPU-busy time to distinguish active compute from
   an idle GPU holding a stream.
 
-## Workloads and tools
+## 🧰 Workloads and tools
 
 | Path | Purpose |
 |---|---|
@@ -54,7 +54,7 @@ MoveBench evaluation reached 3.93× speedup on eight GPUs, while ViPE reached
 5.45×. In ViPE's production configuration, four GPUs initially beat eight;
 the report reproduces that result and isolates its cause.
 
-## Run on your hardware
+## 🛠️ Run on your hardware
 
 Inspect the CPUs that your job can really use:
 
@@ -80,7 +80,7 @@ THREADS=8 movebench/run_fork.sh --dataset data/eval81 --gpus 0,1,2,3
 `run_fork.sh --gpus 0,1,2,3` specifies GPU *IDs*. If `THREADS` is unset,
 `run_fork.sh` selects `floor(available CPUs / selected GPUs)` automatically.
 
-## Installation
+## 🚀 Installation
 
 ```bash
 conda create -n vipe-new python=3.11 -y
